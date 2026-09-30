@@ -1,0 +1,22 @@
+name: 改善建議 / Improvement suggestion
+description: 說明想改善的操作或效果 / Describe an interaction or effect to improve
+title: '[Suggestion] '
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 目前遇到的問題 / Current problem
+      description: 使用情境與現有操作哪裡不方便 / Your use case and what is difficult today
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 希望怎麼改善 / Proposed improvement
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: 補充資料 / Additional context
+      description: 選填，可附範例或其他可行方式 / Optional examples or alternatives

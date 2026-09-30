@@ -1,0 +1,55 @@
+name: 問題回報 / Bug report
+description: 回報播放、介面或設定問題 / Report playback, UI, or settings problems
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        請提供重現方式，並移除截圖及設定檔中的個人資料。作者可能不會即時回覆。
+        Please include reproduction steps and remove personal information. Replies may take time.
+  - type: input
+    id: version
+    attributes:
+      label: 版本 / Version
+      placeholder: '1.0.0'
+    validations:
+      required: true
+  - type: dropdown
+    id: distribution
+    attributes:
+      label: 安裝方式 / Installation
+      options:
+        - Userscript
+        - Chromium extension
+        - Firefox extension
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 瀏覽器、管理器與裝置 / Browser, manager, and device
+      description: 包含版本與作業系統 / Include versions and operating system
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: 動畫頁網址 / Affected page URL
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 重現步驟 / Steps to reproduce
+      description: 寫出啟用的效果、主題及相關設定 / Include effect, theme, and relevant settings
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 預期與實際結果 / Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 截圖、錯誤訊息或設定備份 / Screenshots, errors, or settings backup
+      description: 選填，請勿附上帳號憑證 / Optional; do not include credentials

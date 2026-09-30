@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>動畫瘋環境光</title>
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="settings-ui.css" />
+    <script src="settings.js" defer></script>
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8 3H4a1 1 0 0 0-1 1v4m13-5h4a1 1 0 0 1 1 1v4M3 16v4a1 1 0 0 0 1 1h4m13-5v4a1 1 0 0 1-1 1h-4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+        <div>
+          <h1>動畫瘋環境光</h1>
+          <p>讓影片色彩延伸到頁面之外</p>
+        </div>
+      </header>
+      <div data-settings-overview>
+        <label class="switch-row"
+          ><span>動態環境光</span><input data-setting="enabled" type="checkbox"
+        /></label>
+        <label class="switch-row"
+          ><span>主題配色</span><input data-setting="uiEffectsEnabled" type="checkbox"
+        /></label>
+        <label class="switch-row"
+          ><span>版型重排</span><input data-setting="themeEnabled" type="checkbox"
+        /></label>
+      </div>
+      <section id="settings-controls" aria-label="環境光與頁面設定"></section>
+      <p class="tip" data-settings-overview>
+        設定會自動儲存。關閉重新設計仍可使用光暈與介面配色。非官方，受到 youtube-ambilight 啟發。
+      </p>
+    </main>
+  </body>
+</html>

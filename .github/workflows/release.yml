@@ -1,0 +1,68 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Check version
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const version = JSON.parse(fs.readFileSync('package.json')).version;
+          const manifest = JSON.parse(fs.readFileSync('src/manifest.json'));
+          if (process.env.GITHUB_REF_NAME !== `v${version}` || manifest.version !== version) {
+            throw new Error('Tag, package, and manifest versions must match');
+          }
+          NODE
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Package downloads
+        run: |
+          mkdir release
+          cp dist/ani-ambilight.user.js release/anigamer-ambilight.user.js
+          (cd dist/extension && zip -qr ../../release/anigamer-ambilight-chromium.zip .)
+          (cd dist/extension-firefox && zip -qr ../../release/anigamer-ambilight-firefox.zip .)
+          (cd release && sha256sum *.user.js *.zip > SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: release/
+          if-no-files-found: error
+
+  publish:
+    needs: package
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+          path: release
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" release/* --verify-tag --title "$GITHUB_REF_NAME" --notes '動畫瘋環境光與播放頁主題編輯器。提供 Userscript、Chromium、Firefox 套件。安裝與完整功能請見 README。Firefox 套件為未簽署的暫時載入版。
+
+          Ambient lighting and a theme editor for AniGamer. Includes userscript, Chromium, and Firefox packages. See README for installation and features. The Firefox package is unsigned and intended for temporary loading.'

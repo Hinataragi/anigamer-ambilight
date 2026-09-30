@@ -1,0 +1,925 @@
+/* 編輯器配色固定，背景透明度可獨立調整。 */
+:where(.ani-view-settings-panel, body:has(#settings-controls)) {
+  --ani-editor-bg: #17212b;
+  --ani-editor-surface: #202d38;
+  --ani-editor-text: #f2f5f8;
+  --ani-editor-muted: #b7c7d3;
+  --ani-editor-accent: #9fe8ed;
+  --ani-editor-line: #496273;
+  scrollbar-color: #738c9c var(--ani-editor-bg);
+  caret-color: var(--ani-editor-accent);
+}
+[data-settings-home][hidden],
+[data-settings-detail][hidden],
+[data-settings-page][hidden],
+[data-settings-overview][hidden],
+.ani-setting-row[hidden] {
+  display: none !important;
+}
+.ani-settings-home {
+  margin-top: 16px;
+  border-top: 1px solid var(--ani-editor-line);
+}
+.ani-settings-category {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 68px;
+  padding: 12px 0 !important;
+  border: 0;
+  border-bottom: 1px solid var(--ani-editor-line);
+  border-radius: 0;
+  background: transparent !important;
+  color: var(--ani-editor-text) !important;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.ani-settings-category strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.ani-settings-category small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ani-editor-muted);
+}
+.ani-settings-category svg,
+.ani-settings-breadcrumb svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+.ani-settings-category:hover {
+  color: var(--ani-editor-accent) !important;
+}
+.ani-settings-category:focus-visible,
+.ani-settings-breadcrumb button:focus-visible {
+  outline: 2px solid var(--ani-editor-accent);
+  outline-offset: 3px;
+}
+.ani-settings-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ani-editor-line);
+}
+.ani-settings-breadcrumb button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 0 4px !important;
+  border: 0;
+  background: transparent !important;
+  color: var(--ani-editor-accent) !important;
+  font: inherit;
+  cursor: pointer;
+}
+.ani-settings-breadcrumb svg {
+  transform: rotate(180deg);
+}
+.ani-settings-breadcrumb h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ani-editor-text) !important;
+}
+.ani-settings-detail .ani-settings-fields {
+  padding: 0;
+  gap: 16px;
+}
+/* 播放頁對 section 的固定尺寸不得套進設定分類。 */
+body .ani-view-settings-panel section[data-settings-page] {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+.ani-setting-row .ani-field-help {
+  grid-column: 1 / -1;
+  margin: 0;
+  line-height: 1.6;
+}
+.ani-settings-detail .ani-settings-select {
+  margin: 0 !important;
+}
+.ani-settings-detail .ani-settings-option {
+  margin: 0;
+  min-height: 44px;
+  line-height: 1.6;
+}
+.ani-settings-range {
+  line-height: 1.6;
+}
+.ani-settings-range input {
+  min-height: 44px;
+}
+.ani-settings-detail select {
+  min-height: 44px;
+}
+.ani-settings-help {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ani-editor-muted) !important;
+}
+.ani-settings-subheading {
+  margin: 16px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--ani-editor-line);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ani-editor-text) !important;
+}
+.ani-font-preview {
+  margin: 24px 0 0;
+  padding: 18px 0;
+  border-block: 1px solid var(--ani-editor-line);
+  color: var(--ani-editor-text) !important;
+  font-family: var(--ani-font, system-ui, sans-serif) !important;
+  font-size: 20px;
+  line-height: 1.8;
+}
+.ani-settings-status:empty,
+[data-font-status]:empty {
+  display: none;
+}
+.ani-setting-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: 12px;
+  align-items: end;
+}
+.ani-setting-row > label {
+  min-width: 0;
+}
+.ani-setting-reset {
+  min-height: 44px;
+  padding: 0 4px !important;
+  border: 1px solid var(--ani-editor-line) !important;
+  border-radius: 8px;
+  background: transparent !important;
+  color: var(--ani-editor-muted) !important;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.ani-setting-reset:hover,
+.ani-setting-reset:focus-visible {
+  color: var(--ani-editor-text) !important;
+  border-color: var(--ani-editor-accent) !important;
+}
+[data-settings-overview] > label {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 24px 44px;
+  gap: 12px;
+  align-items: center;
+  min-height: 52px;
+}
+.ani-theme-presets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 0;
+}
+.ani-theme-presets > button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+  min-height: 108px;
+  padding: 12px !important;
+  border: 1px solid var(--ani-editor-line) !important;
+  border-radius: 12px;
+  background: var(--ani-editor-surface) !important;
+  color: var(--ani-editor-text) !important;
+  font: inherit;
+  cursor: pointer;
+}
+.ani-theme-presets > button[aria-pressed='true'] {
+  border-color: var(--ani-editor-accent) !important;
+  outline: 2px solid var(--ani-editor-accent);
+  outline-offset: 2px;
+}
+.ani-theme-presets > button:hover {
+  border-color: var(--ani-editor-muted) !important;
+}
+.ani-theme-presets strong {
+  font-weight: 600;
+  font-size: 14px;
+}
+.ani-theme-presets small {
+  color: var(--ani-editor-muted);
+  line-height: 1.6;
+  font-size: 12px;
+}
+.ani-theme-swatches {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 3px;
+}
+.ani-theme-swatches i {
+  width: 24px;
+  height: 14px;
+  border-radius: 3px;
+}
+.ani-setting-row.is-disabled > label {
+  color: var(--ani-editor-muted);
+}
+.ani-settings-detail input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.ani-settings-actions button {
+  min-height: 44px;
+}
+body .ani-view-settings-panel .ani-settings-home > .ani-settings-category,
+body .ani-view-settings-panel .ani-settings-breadcrumb button {
+  background: transparent !important;
+}
+body .ani-view-settings-panel .ani-settings-home > .ani-settings-category:hover,
+body .ani-view-settings-panel .ani-settings-breadcrumb button {
+  color: var(--ani-editor-accent) !important;
+}
+body .ani-view-settings-panel {
+  width: min(448px, calc(100% - 32px)) !important;
+  max-height: min(800px, calc(100dvh - 96px));
+  padding: 20px !important;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  font-family: var(--ani-font, system-ui, sans-serif) !important;
+  scroll-padding-top: 132px;
+}
+.ani-view-settings-panel :is(button, input, select, output) {
+  font-family: inherit;
+}
+.ani-view-settings-panel .ani-settings-heading {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin: -20px -20px 16px;
+  padding: 12px 20px;
+  background: var(--ani-editor-bg);
+  min-height: 68px;
+}
+.ani-view-settings-panel .ani-settings-breadcrumb {
+  position: sticky;
+  top: 68px;
+  z-index: 2;
+  margin-inline: -4px;
+  padding-inline: 4px;
+  background: var(--ani-editor-bg);
+}
+body .ani-view-settings-panel .ani-settings-close {
+  width: 44px;
+  height: 44px;
+  background: transparent !important;
+  color: var(--ani-editor-muted) !important;
+}
+.ani-view-settings-panel .ani-settings-close:hover {
+  color: var(--ani-editor-text) !important;
+}
+.ani-view-settings-panel ::selection {
+  background: #315568;
+  color: var(--ani-editor-text);
+}
+@media (max-width: 600px) {
+  body .ani-view-settings-panel {
+    inset: 12px 12px auto;
+    width: auto !important;
+    max-height: calc(100dvh - 24px);
+    padding: 20px !important;
+  }
+  .ani-settings-category {
+    min-height: 66px;
+  }
+  .ani-setting-row {
+    gap: 10px;
+  }
+}
+
+/* 開關沿用原生 input 的鍵盤與讀屏能力，外觀改成滑動開關。 */
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting] {
+  appearance: none !important;
+  width: 42px !important;
+  height: 24px !important;
+  min-height: 24px !important;
+  flex: none;
+  border: 1px solid var(--ani-editor-line) !important;
+  border-radius: 20px !important;
+  background: #40515f !important;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting]::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: #e5edf3;
+}
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting]:checked {
+  background: #9fe8ed !important;
+}
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting]:checked::before {
+  left: 20px;
+  background: #17212b;
+}
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting]:focus-visible {
+  outline: 2px solid #9fe8ed;
+  outline-offset: 3px;
+}
+.ani-settings-detail .ani-settings-option {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ani-settings-detail .ani-settings-option input {
+  order: 2;
+}
+[data-settings-overview] > label {
+  grid-template-columns: minmax(0, 1fr) 42px 44px;
+}
+.ani-method-options {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.ani-method-options legend {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.ani-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.ani-method-grid button {
+  min-height: 84px;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: 10px;
+  background: var(--ani-editor-surface);
+  color: var(--ani-editor-text);
+  cursor: pointer;
+  font: inherit;
+}
+.ani-method-grid strong {
+  display: block;
+  font-size: 14px;
+}
+.ani-method-grid small {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ani-editor-muted);
+}
+.ani-method-grid button[aria-pressed='true'] {
+  border-color: var(--ani-editor-accent);
+  box-shadow: inset 3px 0 var(--ani-editor-accent);
+}
+.ani-method-grid button:focus-visible {
+  outline: 2px solid var(--ani-editor-accent);
+  outline-offset: 2px;
+}
+.ani-setting-row:has(.ani-method-options) {
+  grid-template-columns: 1fr;
+}
+.ani-setting-row:has(.ani-method-options) > .ani-setting-reset {
+  justify-self: end;
+  padding-inline: 12px !important;
+}
+
+body .ani-view-settings-panel {
+  background: rgba(23, 33, 43, var(--ani-editor-opacity, 1)) !important;
+}
+@media (min-width: 1024px) {
+  body .ani-view-settings-panel {
+    width: min(780px, calc(100% - 64px)) !important;
+    max-height: calc(100dvh - 64px);
+    inset: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  .ani-settings-home {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+  }
+  .ani-settings-category {
+    min-height: 88px;
+  }
+  .ani-method-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.ani-settings-select input[type='text'] {
+  min-height: 44px;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--ani-editor-surface);
+  color: var(--ani-editor-text);
+  border: 1px solid var(--ani-editor-line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+/* 桌面使用分類導覽與內容雙欄，手機保留先選分類再進入的流程。 */
+.ani-settings-rail {
+  display: none;
+}
+.ani-settings-category strong {
+  font-size: 17px;
+}
+.ani-settings-category small,
+.ani-settings-help {
+  font-size: 13px;
+}
+.ani-settings-breadcrumb h3 {
+  font-size: 22px;
+  letter-spacing: 0;
+}
+.ani-settings-subheading {
+  font-size: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+.ani-setting-row {
+  padding-block: 6px;
+}
+.ani-category-reset svg {
+  transform: none;
+}
+@media (min-width: 1024px) {
+  body .ani-view-settings-panel {
+    width: min(1040px, calc(100% - 64px)) !important;
+    padding: 24px 28px !important;
+  }
+  .ani-settings-home {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 28px;
+    margin-top: 24px;
+    padding-top: 8px;
+  }
+  .ani-settings-category {
+    min-height: 112px;
+    padding-inline: 8px !important;
+  }
+  .ani-settings-category:hover {
+    background: var(--ani-editor-surface) !important;
+  }
+  [data-settings-overview] {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  [data-settings-overview][hidden] {
+    display: none !important;
+  }
+  [data-settings-overview] > label {
+    grid-template-columns: minmax(0, 1fr) 42px 44px;
+    gap: 8px;
+    padding-inline: 8px;
+    border-right: 1px solid var(--ani-editor-line);
+  }
+  [data-settings-overview] > label:last-child {
+    border: 0;
+  }
+  .ani-settings-detail {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 0 28px;
+    align-items: start;
+  }
+  .ani-settings-rail {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    position: sticky;
+    top: 0;
+    gap: 4px;
+    padding-right: 20px;
+    border-right: 1px solid var(--ani-editor-line);
+  }
+  body .ani-view-settings-panel .ani-settings-rail button {
+    min-height: 46px;
+    padding: 10px 12px !important;
+    border: 0;
+    border-radius: 6px;
+    background: transparent !important;
+    color: var(--ani-editor-muted) !important;
+    text-align: left;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  body .ani-view-settings-panel .ani-settings-rail button[aria-current='page'] {
+    color: var(--ani-editor-accent) !important;
+    background: var(--ani-editor-surface) !important;
+    font-weight: 650;
+    box-shadow: inset 3px 0 var(--ani-editor-accent);
+  }
+  body .ani-view-settings-panel .ani-settings-rail button:hover {
+    color: var(--ani-editor-text) !important;
+  }
+  body .ani-view-settings-panel .ani-settings-rail button:focus-visible {
+    outline: 2px solid var(--ani-editor-accent);
+    outline-offset: 2px;
+  }
+  .ani-settings-breadcrumb,
+  [data-settings-page] {
+    grid-column: 2;
+  }
+  .ani-settings-breadcrumb {
+    grid-row: 1;
+    margin-bottom: 24px;
+  }
+  [data-settings-page] {
+    grid-row: 2;
+    min-width: 0;
+  }
+}
+.ani-setting-reset svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+.ani-category-reset {
+  margin-left: auto;
+  min-width: 44px;
+  justify-content: center;
+}
+.ani-effect-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.ani-effect-choices button {
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: 8px;
+  background: var(--ani-editor-surface);
+  color: var(--ani-editor-text);
+  font: inherit;
+  cursor: pointer;
+}
+.ani-effect-choices button[aria-pressed='true'] {
+  border-color: var(--ani-editor-accent);
+  color: var(--ani-editor-accent);
+}
+
+/* 方法按用途分組，選中標記與文字共用一條基線。 */
+.ani-settings-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .ani-view-settings-panel .ani-settings-preview {
+  min-height: 44px;
+  padding: 8px 12px !important;
+  background: transparent !important;
+  color: var(--ani-editor-muted) !important;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+}
+body .ani-view-settings-panel .ani-settings-preview[aria-pressed='true'] {
+  color: var(--ani-editor-accent) !important;
+  border-color: var(--ani-editor-accent);
+}
+.ani-view-settings-panel :is(.ani-settings-heading, .ani-settings-breadcrumb) {
+  background: rgba(23, 33, 43, var(--ani-editor-opacity, 1));
+}
+.ani-method-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.ani-method-group {
+  min-width: 0;
+}
+.ani-method-group h4 {
+  margin: 0 0 10px;
+  color: var(--ani-editor-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.ani-method-list {
+  display: grid;
+  gap: 4px;
+}
+body .ani-view-settings-panel .ani-method-list button,
+#settings-controls .ani-method-list button {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  min-height: 64px;
+  padding: 8px !important;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  text-align: left;
+  background: transparent !important;
+  color: var(--ani-editor-text) !important;
+  font: inherit;
+  cursor: pointer;
+}
+.ani-method-list strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.ani-method-list small {
+  display: block;
+  margin-top: 4px;
+  color: var(--ani-editor-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.ani-method-marker {
+  display: block;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: 50%;
+  margin-top: 3px;
+}
+body .ani-view-settings-panel .ani-method-list button[aria-pressed='true'],
+#settings-controls .ani-method-list button[aria-pressed='true'] {
+  background: var(--ani-editor-surface) !important;
+  border-color: var(--ani-editor-accent);
+}
+.ani-method-list button[aria-pressed='true'] .ani-method-marker {
+  border: 4px solid var(--ani-editor-accent);
+}
+.ani-method-list button:hover {
+  border-color: var(--ani-editor-line) !important;
+}
+.ani-method-list button:focus-visible {
+  outline: 2px solid var(--ani-editor-accent);
+  outline-offset: 2px;
+}
+.ani-setting-row:has(.ani-method-options) {
+  position: relative;
+  display: block;
+}
+.ani-method-options legend {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-right: 56px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.ani-setting-row:has(.ani-method-options) > .ani-setting-reset {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  width: 44px;
+  padding: 0 !important;
+}
+.ani-view-settings-panel .ani-settings-breadcrumb {
+  margin-inline: 0;
+  padding-inline: 0;
+  min-height: 60px;
+}
+.ani-settings-breadcrumb h3 {
+  font-size: 24px;
+  font-weight: 650;
+}
+.ani-setting-row {
+  align-items: center;
+}
+.ani-setting-row:has(.ani-settings-range) {
+  align-items: end;
+}
+.ani-settings-subheading {
+  font-size: 15px;
+}
+@media (min-width: 1024px) {
+  .ani-view-settings-panel .ani-settings-heading {
+    margin: -24px -28px 16px;
+    padding: 12px 28px;
+  }
+  .ani-view-settings-panel .ani-settings-rail {
+    top: 80px;
+  }
+}
+@media (max-width: 700px) {
+  .ani-method-groups {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .ani-method-group h4 {
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--ani-editor-line);
+  }
+  body .ani-view-settings-panel .ani-method-list button,
+  #settings-controls .ani-method-list button {
+    min-height: 64px;
+  }
+}
+
+/* 標題與捲動內容分開，避免負邊距與 sticky 把按鈕切掉。 */
+body .ani-view-settings-panel {
+  display: flex;
+  flex-direction: column;
+  height: min(800px, calc(100dvh - 96px));
+  overflow: hidden;
+  scrollbar-gutter: auto;
+}
+body .ani-view-settings-panel .ani-settings-heading {
+  position: static;
+  flex: none;
+  min-height: 56px;
+  margin: 0 0 12px;
+  padding: 0 0 12px;
+  background: transparent;
+}
+.ani-settings-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding: 6px 6px 16px;
+  scroll-padding-top: 80px;
+}
+.ani-settings-header-actions .ani-settings-opacity {
+  width: 240px;
+  padding: 0;
+  gap: 8px;
+  font-size: 12px;
+}
+.ani-settings-opacity .ani-settings-range {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 8px;
+}
+.ani-settings-opacity input {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  min-height: 32px;
+}
+.ani-settings-header-actions {
+  align-items: end;
+}
+.ani-settings-header-actions .ani-settings-opacity {
+  align-items: end;
+}
+body
+  .ani-view-settings-panel
+  .ani-settings-header-actions
+  :is(.ani-setting-reset, .ani-settings-close) {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 !important;
+  border: 1px solid var(--ani-editor-line) !important;
+  border-radius: 8px;
+  background: transparent !important;
+  color: var(--ani-editor-muted) !important;
+}
+.ani-settings-opacity .ani-settings-range {
+  border-radius: 8px;
+}
+.ani-settings-opacity .ani-settings-range:has(input:focus-visible) {
+  outline: 2px solid var(--ani-editor-accent);
+  outline-offset: 3px;
+}
+body .ani-view-settings-panel .ani-settings-opacity input:focus-visible {
+  outline: none;
+}
+.ani-settings-scroll > [data-settings-overview] > label {
+  min-height: 56px;
+}
+body .ani-view-settings-panel .ani-settings-breadcrumb {
+  top: 0;
+  padding-block: 6px 10px;
+}
+body .ani-view-settings-panel .ani-settings-rail {
+  top: 6px;
+}
+@media (max-width: 700px) {
+  body .ani-view-settings-panel {
+    height: calc(100dvh - 122px);
+  }
+  body .ani-view-settings-panel .ani-settings-heading h2 {
+    font-size: 17px;
+  }
+  .ani-settings-header-actions {
+    gap: 4px;
+  }
+  body .ani-view-settings-panel .ani-settings-heading {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ani-settings-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .ani-settings-header-actions .ani-settings-opacity {
+    width: min(240px, calc(100% - 52px));
+  }
+  body .ani-view-settings-panel .ani-settings-preview {
+    padding-inline: 8px !important;
+    font-size: 12px;
+  }
+}
+/* 固定框內只使用一組內距；跨列導覽不分攤分類標題的高度。 */
+body .ani-view-settings-panel .ani-settings-scroll {
+  padding: 4px 0 16px;
+  scrollbar-gutter: auto;
+}
+body .ani-view-settings-panel .ani-settings-breadcrumb {
+  height: auto !important;
+  min-height: 52px;
+  padding: 0 0 12px !important;
+  margin: 0 0 20px !important;
+  background: transparent !important;
+  align-self: start;
+}
+body .ani-view-settings-panel .ani-settings-fields {
+  align-content: start;
+  grid-auto-rows: min-content;
+}
+body .ani-view-settings-panel .ani-setting-row {
+  margin: 0 !important;
+}
+.ani-field-help p {
+  display: block;
+  margin: 0 0 4px !important;
+  padding: 0 !important;
+  white-space: normal;
+  text-indent: 0;
+}
+@media (min-width: 1024px) {
+  .ani-settings-detail {
+    grid-template-rows: min-content minmax(0, 1fr);
+  }
+}
+.ani-settings-color {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+.ani-settings-color > span {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 8px;
+}
+body .ani-view-settings-panel .ani-settings-color input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: 8px;
+  background: var(--ani-editor-surface);
+  color: var(--ani-editor-text);
+  font: inherit;
+}
+body .ani-view-settings-panel .ani-settings-color input[type='color'] {
+  padding: 4px;
+}
