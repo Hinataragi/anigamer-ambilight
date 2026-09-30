@@ -3,12 +3,14 @@
 ## Violentmonkey userscript（建議）
 
 1. 從 [Violentmonkey 官方網站](https://violentmonkey.github.io/) 選擇您使用的瀏覽器，安裝腳本管理器。
-2. 在裝有管理器的瀏覽器開啟 [最新版安裝連結](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js)。
+2. 在裝有管理器的瀏覽器點擊 [GitHub 最新版安裝連結](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js)，或到 [Greasy Fork](https://greasyfork.org/zh-TW/scripts/598131-anigamer-ambilight) 按「安裝此腳本」。
 3. Violentmonkey 會顯示腳本名稱、程式碼與權限。確認名稱為「anigamer-ambilight｜動畫瘋環境光與沉浸版面」，再按「確認安裝」。
 4. 重新整理動畫瘋。既有登入狀態仍由動畫瘋與原瀏覽器管理。
 5. 頁首右側按「觀影設定」，分別開關光暈、主題配色、版型重排。
 
 若瀏覽器直接下載檔案，請在 Violentmonkey 管理頁使用「從檔案匯入」。請保留同一份腳本更新，避免重複啟用。
+
+GitHub 連結固定指向最新 Release，不需要自行尋找版本。Greasy Fork 安裝版由 Greasy Fork 提供更新，GitHub 安裝版則從 GitHub 檢查更新。
 
 ### 離線檔案
 

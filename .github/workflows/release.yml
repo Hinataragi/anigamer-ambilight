@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    tags: ['v*.*.*']
+    tags: ["v*.*.*"]
 
 permissions:
   contents: read
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v7
         with:
-          node-version: '24'
+          node-version: "24"
           cache: npm
       - name: Check version
         run: |
@@ -63,6 +63,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          gh release create "$GITHUB_REF_NAME" release/* --verify-tag --title "$GITHUB_REF_NAME" --notes '動畫瘋環境光與播放頁主題編輯器。提供 Userscript、Chromium、Firefox 套件。安裝與完整功能請見 README。Firefox 套件為未簽署的暫時載入版。
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" release/* --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" release/* --verify-tag --title "$GITHUB_REF_NAME" --notes '動畫瘋環境光與播放頁主題編輯器。提供 Userscript、Chromium、Firefox 套件。安裝與完整功能請見 README。Firefox 套件為未簽署的暫時載入版。
 
           Ambient lighting and a theme editor for AniGamer. Includes userscript, Chromium, and Firefox packages. See README for installation and features. The Firefox package is unsigned and intended for temporary loading.'
+          fi

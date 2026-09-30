@@ -10,16 +10,18 @@
 
 ## 安裝與更新
 
-[安裝最新版 userscript](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js)
+[從 Greasy Fork 安裝](https://greasyfork.org/zh-TW/scripts/598131-anigamer-ambilight)｜[從 GitHub 安裝最新版](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js)
 
 1. 從 [Violentmonkey 官方網站](https://violentmonkey.github.io/) 安裝適用的腳本管理器。
-2. 取得本專案提供的 `.user.js` 腳本，在 Violentmonkey 管理頁匯入。若從腳本網址安裝，管理器通常會直接顯示安裝頁。
+2. 點上方 GitHub 連結，管理器通常會直接顯示安裝頁；若下載成檔案，請在管理器中匯入。也可開啟 Greasy Fork 頁面，按「安裝此腳本」。
 3. 核對腳本名稱、來源與版本，按「確認安裝」或「確認更新」。
 4. 重新整理動畫瘋，按頁首的「觀影設定」。請停用另一份舊腳本或同功能擴充套件，避免重複執行。
 
 也可在 Violentmonkey 管理頁匯入建置出的 `.user.js` 檔案。更新會保留設定；要試新預設，可使用「其他與備份」的全部重設，或按各分類右上角的重設圖示。
 
 更新前建議先匯出設定。請沿用同一份腳本更新，避免同時啟用多個版本；自動更新是否可用，取決於安裝來源與管理器設定。實際版本以腳本開頭的 `@version` 為準。
+
+從 Greasy Fork 安裝的腳本由 Greasy Fork 提供更新；從 GitHub 安裝的腳本使用最新 Release。兩個來源擇一即可。
 
 設定檔的格式版本與腳本版本分開記錄。匯入舊檔時，新選項使用預設值；遇到較新檔案的未知欄位則略過。這能保留已知設定，但不代表舊版能使用新版才有的功能。未來若有不相容的變更，應在更新說明中列出影響與移轉方式。
 

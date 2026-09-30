@@ -14,12 +14,16 @@ Use **one installation method at a time**. Disable older copies and extensions w
 
 ### Userscript — recommended
 
+[Install from Greasy Fork](https://greasyfork.org/en/scripts/598131-anigamer-ambilight) | [Install the latest GitHub release](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js)
+
 1. Install a compatible script manager from the [Violentmonkey website](https://violentmonkey.github.io/).
-2. Open the [latest userscript](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js). If it downloads instead, import the file through your manager.
+2. Click the GitHub installation link above to open your manager's installation screen. If it downloads instead, import the file through your manager. Alternatively, open the Greasy Fork page and click **Install this script**.
 3. Check the name, source, and version, then install or update.
 4. Reload AniGamer and open **觀影設定** (Viewing settings) in the page header.
 
 Mobile and tablet support depends on the browser and script manager. The settings panel adapts to narrower screens.
+
+Greasy Fork installations receive updates from Greasy Fork; GitHub installations use the latest Release. Choose one source and keep updating the same installed copy.
 
 ### Chromium extension
 
