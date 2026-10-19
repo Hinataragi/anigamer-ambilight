@@ -3374,7 +3374,7 @@ body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-sectio
 }
 body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) > .filter-section {
   position: static !important;
-  grid-column: 1 / -1;
+  grid-column: 1 / -1 !important;
   display: grid !important;
   gap: 14px;
   width: 100% !important;
@@ -3466,8 +3466,11 @@ body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-sectio
   outline: 2px solid var(--ani-accent);
   outline-offset: 2px;
 }
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) > :is(.filter-section, .theme-list-block) {
+  grid-area: auto !important;
+}
 body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) > .theme-list-block {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1 !important;
   width: 100% !important;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 176px), 1fr)) !important;
   gap: 26px 18px !important;
