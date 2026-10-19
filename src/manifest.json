@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "anigamer-ambilight｜動畫瘋環境光與主題編輯器",
   "description": "動畫瘋播放頁環境光與主題編輯器。光暈、配色與版型可獨立使用，支援字體、透明度、收合與自訂色碼。非官方工具。",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "minimum_chrome_version": "121",
   "permissions": [
     "storage"
@@ -30,5 +30,5 @@
       "run_at": "document_idle"
     }
   ],
-  "version_name": "1.1.0"
+  "version_name": "1.1.1"
 }
