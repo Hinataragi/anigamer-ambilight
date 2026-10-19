@@ -7,7 +7,7 @@ body.ani-ambientlight-ui {
   --ani-panel: rgba(var(--ani-surface-rgb), var(--ani-panel-opacity, 0.82));
   --ani-text: #eef1f6;
   --ani-muted: #a3afbf;
-  --ani-accent: #79dce4;
+  --ani-accent: #95c4f3;
   --ani-line: #a3afbf30;
   color: var(--ani-text);
   color-scheme: dark;
@@ -19,7 +19,7 @@ body.ani-ambientlight-ui.ani-theme-light {
   --ani-soft: #e3e9f0;
   --ani-text: #151b24;
   --ani-muted: #445062;
-  --ani-accent: #076777;
+  --ani-accent: #0f4685;
   --ani-line: #2a425738;
   color-scheme: light;
 }
@@ -228,7 +228,7 @@ body.ani-ambientlight-ui:not(.ani-ambientlight-page) .season a {
   color: var(--ani-text) !important;
 }
 body.ani-ambientlight-ui:not(.ani-ambientlight-page) .season .playing {
-  background: #176f7b !important;
+  background: color-mix(in srgb, var(--ani-accent) 40%, var(--ani-soft)) !important;
 }
 body.ani-ambientlight-ui:not(.ani-ambientlight-page) .season .playing a {
   color: #fff !important;
@@ -545,7 +545,7 @@ body.ani-theme-light.ani-ambientlight-ui
   color: var(--ani-text) !important;
 }
 body.ani-theme-light.ani-ambientlight-ui .ani-episode-shelf .season a:hover {
-  background: #c9e4e9 !important;
+  background: color-mix(in srgb, var(--ani-accent) 18%, var(--ani-soft)) !important;
 }
 body.ani-ambientlight-ui
   :is(
@@ -1193,7 +1193,7 @@ body.ani-ambientlight-ui
 }
 .ani-focus-toggle:focus-visible,
 .ani-danmu-toggle:focus-visible {
-  outline: 2px solid var(--ani-accent, #9fe8ed);
+  outline: 2px solid var(--ani-accent, #95c4f3);
   outline-offset: 2px;
 }
 body.ani-focus-mode
@@ -2178,4 +2178,9 @@ body.ani-theme-light.ani-ambientlight-ui
 body.ani-ambientlight-ui #BH_background .anime-title,
 body.ani-ambientlight-ui .ani-episode-shelf {
   padding-inline: 14px;
+}
+
+/* 目前所在頁只用文字色與字重表示；原站的青色膠囊指示器移除。 */
+body.ani-ambientlight-ui .mainmenu li::after {
+  display: none !important;
 }
