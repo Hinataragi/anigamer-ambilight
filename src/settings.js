@@ -7,7 +7,7 @@
     uiEffectsEnabled: true,
     themeEnabled: true,
     appearance: 'dark',
-    fontFamily: 'system',
+    fontFamily: 'sans',
     method: 'project',
     intensity: 95,
     radius: 80,
