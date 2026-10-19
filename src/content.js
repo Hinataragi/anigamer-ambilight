@@ -282,24 +282,24 @@
       (settings.appearance === 'system' && systemAppearance.matches);
     const palettes = {
       slate: {
-        dark: ['#0d1117', '20,25,33', '#222a36', '#eef1f6', '#a3afbf'],
-        light: ['#f1f4f8', '250,252,254', '#e3e9f0', '#151b24', '#445062'],
+        dark: ['#14161a', '27,30,36', '#252931', '#d5d7dd', '#9aa0ac'],
+        light: ['#f4f4f6', '252,252,253', '#e5e7eb', '#1e2024', '#535965'],
       },
       neutral: {
-        dark: ['#111113', '24,24,27', '#2a2a2f', '#f4f4f5', '#a8a8b0'],
-        light: ['#f5f5f6', '252,252,253', '#e8e8eb', '#1b1b1f', '#55555e'],
+        dark: ['#161618', '31,31,33', '#2a2a2d', '#d8d8da', '#a0a0a6'],
+        light: ['#f5f5f5', '252,252,253', '#e7e7e9', '#202022', '#5a5a5e'],
       },
       paper: {
-        dark: ['#17140f', '33,29,23', '#342d24', '#f7f1e6', '#cdbfab'],
-        light: ['#f6f1e7', '255,252,246', '#ebe3d4', '#2a231a', '#5f5242'],
+        dark: ['#1c1812', '38,34,26', '#342e23', '#dddad5', '#aca69a'],
+        light: ['#f6f5f3', '253,253,252', '#ece9e4', '#24221e', '#655e53'],
       },
       forest: {
-        dark: ['#0f1613', '22,31,27', '#26352e', '#ecf2ed', '#aebfb3'],
-        light: ['#eef4ef', '250,253,250', '#dde9e0', '#14261b', '#3f5a48'],
+        dark: ['#141a17', '27,36,32', '#25312b', '#d5ddd9', '#9aaca3'],
+        light: ['#f4f6f5', '252,253,252', '#e5ebe8', '#1e2421', '#53655c'],
       },
       violet: {
-        dark: ['#15131a', '30,27,37', '#322d3d', '#f1eef6', '#b9b0c7'],
-        light: ['#f4f1f7', '252,250,254', '#e8e2ef', '#25202d', '#5a4f69'],
+        dark: ['#16141a', '31,27,36', '#2a2531', '#d8d5dd', '#a29aac'],
+        light: ['#f5f4f6', '252,252,253', '#e8e5eb', '#211e24', '#5a5365'],
       },
     };
     const surfaceRgb = settings.customSurface
@@ -324,7 +324,7 @@
         '--ani-accent',
         settings.customPalette
           ? settings.customAccent
-          : `hsl(${settings.accentHue} ${settings.accentStrength}% ${light ? 29 : 77}%)`,
+          : `hsl(${settings.accentHue} ${settings.accentStrength}% ${light ? 30 : 72}%)`,
       );
       document.body?.style.setProperty(
         '--ani-line',

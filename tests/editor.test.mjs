@@ -88,7 +88,7 @@ hexField.value='#abc';hexField.dispatchEvent(new w.Event('change',{bubbles:true}
 assert.equal(hexField.value,'#aabbcc');
 change('customPalette',true);
 assert.equal(w.document.body.style.getPropertyValue('--ani-base'),'#aabbcc');
-assert.equal(w.AniAmbientSettings.normalize({customBase:'url(bad)'}).customBase,'#0d1117');
+assert.equal(w.AniAmbientSettings.normalize({customBase:'url(bad)'}).customBase,'#14161a');
 change('customPalette',false);
 assert.equal(w.document.body.style.getPropertyValue('--ani-base'),originalBase);
 assert.equal(w.document.body.classList.contains('ani-footer-glow'),true);

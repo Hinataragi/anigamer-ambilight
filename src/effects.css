@@ -1,25 +1,25 @@
 /* Colors are independent of the replacement layout. Native player controls,
    icons, account forms and navigation handlers keep their original behavior. */
 body.ani-ambientlight-ui {
-  --ani-surface-rgb: 20, 25, 33;
-  --ani-base: #0d1117;
-  --ani-soft: #222a36;
+  --ani-surface-rgb: 27, 30, 36;
+  --ani-base: #14161a;
+  --ani-soft: #252931;
   --ani-panel: rgba(var(--ani-surface-rgb), var(--ani-panel-opacity, 0.82));
-  --ani-text: #eef1f6;
-  --ani-muted: #a3afbf;
-  --ani-accent: #95c4f3;
+  --ani-text: #d5d7dd;
+  --ani-muted: #9aa0ac;
+  --ani-accent: #89b8e6;
   --ani-line: #a3afbf30;
   color: var(--ani-text);
   color-scheme: dark;
   font-family: var(--ani-font, system-ui, sans-serif) !important;
 }
 body.ani-ambientlight-ui.ani-theme-light {
-  --ani-surface-rgb: 250, 252, 254;
-  --ani-base: #f1f4f8;
-  --ani-soft: #e3e9f0;
-  --ani-text: #151b24;
-  --ani-muted: #445062;
-  --ani-accent: #0f4685;
+  --ani-surface-rgb: 252, 252, 253;
+  --ani-base: #f4f4f6;
+  --ani-soft: #e5e7eb;
+  --ani-text: #1e2024;
+  --ani-muted: #535965;
+  --ani-accent: #1b4d7e;
   --ani-line: #2a425738;
   color-scheme: light;
 }
