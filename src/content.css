@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
 
 :root {
+  --ani-font: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', system-ui, sans-serif;
   --ani-base: #09131c;
   --ani-panel: #13232d;
   --ani-panel-soft: #182d38;
@@ -3252,11 +3253,4 @@ body.ani-ambientlight-ui
   padding: 0 !important;
   color: var(--ani-muted) !important;
   font-size: 13px;
-}
-
-/* ── 十、預設字體：Noto Sans TC（Google Fonts），找不到時退回系統字體 ── */
-body.ani-ambientlight-ui,
-body.ani-ambientlight-ui button,
-body.ani-ambientlight-ui input {
-  font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', system-ui, sans-serif;
 }
