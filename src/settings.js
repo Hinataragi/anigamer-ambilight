@@ -561,7 +561,7 @@
     cinema: {
       label: '沉浸墨藍',
       description: '墨藍底色，青色按鈕與連結',
-      swatches: ['#0b1017', '#202d38', '#79dce4'],
+      swatches: ['#0d1117', '#222a36', '#79dce4'],
       values: {
         appearance: 'dark',
         colorTheme: 'slate',
@@ -671,7 +671,7 @@
     reading: {
       label: '清楚閱讀',
       description: '較大文字，資訊區不透明',
-      swatches: ['#eef3f7', '#e2ebf1', '#076777'],
+      swatches: ['#f1f4f8', '#e3e9f0', '#076777'],
       values: {
         appearance: 'light',
         colorTheme: 'slate',

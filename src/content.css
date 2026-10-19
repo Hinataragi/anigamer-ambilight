@@ -80,7 +80,7 @@ body.ani-ambientlight-ui .top_sky {
       rgba(var(--ani-scene-top-rgb, 40, 100, 120), calc(var(--ani-header-tint, 0.35) * 0.3)) 50%,
       rgba(var(--ani-scene-right-rgb, 40, 100, 120), calc(var(--ani-header-tint, 0.35) * 0.5))
     ),
-    rgba(var(--ani-surface-rgb, 19, 29, 39), var(--ani-header-opacity, 0.8)) !important;
+    rgba(var(--ani-surface-rgb, 20, 25, 33), var(--ani-header-opacity, 0.8)) !important;
 }
 body.ani-layout-nav .mainmenu {
   position: relative;
@@ -1542,13 +1542,13 @@ body.ani-ambientlight-ui .ani-ambientlight-floating-toggle {
 
 /* One consistent composition: quiet navigation, art-led browsing, a broad stage. */
 body.ani-ambientlight-page {
-  --ani-base: #0b1017;
-  --ani-surface-rgb: 19, 29, 39;
+  --ani-base: #0d1117;
+  --ani-surface-rgb: 20, 25, 33;
   --ani-panel: rgba(var(--ani-surface-rgb), var(--ani-panel-opacity, 0.82));
-  --ani-panel-soft: #202d38;
+  --ani-panel-soft: #222a36;
   --ani-line: rgba(183, 206, 220, 0.19);
-  --ani-muted: #b7c7d3;
-  --ani-text: #f2f5f8;
+  --ani-muted: #a3afbf;
+  --ani-text: #eef1f6;
   --ani-accent: #79dce4;
   caret-color: var(--ani-accent);
 }
@@ -1795,7 +1795,7 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   padding: 0;
   border: 0;
   border-radius: 8px;
-  background: #202d38;
+  background: #222a36;
   color: #d8edf3;
   cursor: pointer;
 }
@@ -1823,8 +1823,8 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   padding: 22px;
   border-radius: 14px;
   box-shadow: 0 18px 64px #0009;
-  background: #17212b;
-  color: #f2f5f8;
+  background: #12161d;
+  color: #eef1f6;
   font:
     14px/1.5 'Noto Sans TC',
     'PingFang TC',
@@ -1850,7 +1850,7 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   margin: 0;
   font-size: 18px;
   font-weight: 650;
-  color: #f2f5f8;
+  color: #eef1f6;
 }
 .ani-settings-close {
   display: grid;
@@ -1859,7 +1859,7 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   height: 32px;
   padding: 0;
   background: transparent;
-  color: #b7c7d3;
+  color: #a3afbf;
   border: 0;
   cursor: pointer;
 }
@@ -1875,7 +1875,7 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   gap: 12px;
   margin: 18px 0;
   padding: 18px 0;
-  border-block: 1px solid #b7c7d330;
+  border-block: 1px solid #a3afbf30;
 }
 .ani-settings-ranges label {
   display: grid;
@@ -1911,12 +1911,12 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
 }
 .ani-settings-tip {
   margin: 18px 0 0;
-  color: #b7c7d3;
+  color: #a3afbf;
   font-size: 12px;
   line-height: 1.6;
 }
 .ani-settings-group {
-  border-top: 1px solid #b7c7d330;
+  border-top: 1px solid #a3afbf30;
   margin-top: 14px;
   padding-top: 10px;
 }
@@ -1925,7 +1925,7 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   font-weight: 600;
   cursor: pointer;
   padding: 6px 0;
-  color: #f2f5f8;
+  color: #eef1f6;
 }
 .ani-settings-fields {
   display: grid;
@@ -1959,8 +1959,8 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   padding: 6px 10px;
   border: 1px solid #496273;
   border-radius: 8px;
-  background: #202d38;
-  color: #f2f5f8;
+  background: #222a36;
+  color: #eef1f6;
   font: inherit;
 }
 .ani-settings-preset {
@@ -1978,7 +1978,7 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   border: 0;
   border-radius: 8px;
   background: #304553;
-  color: #f2f5f8;
+  color: #eef1f6;
   font: inherit;
   cursor: pointer;
 }
@@ -1989,11 +1989,11 @@ body.ani-layout-comments #w-post-box .webview_commendlist {
   margin: 12px 0 0;
   font-size: 12px;
   line-height: 1.6;
-  color: #b7c7d3;
+  color: #a3afbf;
 }
 body.ani-ambientlight-ui .ani-view-settings-panel :is(select, button) {
-  background: #202d38 !important;
-  color: #f2f5f8 !important;
+  background: #222a36 !important;
+  color: #eef1f6 !important;
 }
 .ani-view-settings-panel :focus-visible,
 .ani-view-settings:focus-visible {

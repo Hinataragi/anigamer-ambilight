@@ -2,119 +2,153 @@
 
 [繁體中文](README.md) | English
 
-Ambient lighting and a playback page theme editor for AniGamer. Extend video colors around the player, or customize the page without enabling video sampling.
+**Ambient lighting and a page theme editor for AniGamer (ani.gamer.com.tw).**
+Video colors extend around the player, and you can restyle colors, fonts, transparency and layout. Lighting and theme are independent — use either one alone.
 
-Inspired by [youtube-ambilight](https://github.com/WesselKroos/youtube-ambilight), with additional reference to [bilibili-ambilight](https://github.com/iceorange-dev/bilibili-ambilight). This is an unofficial project that keeps AniGamer's player and account flows.
+Three ways to install, with identical features and settings: **Userscript**, **Chromium extension** (Chrome, Edge), **Firefox extension**.
 
-I may not check issues regularly or release updates on a fixed schedule. Replies and fixes may take time. Forks, contributions, and substantial improvements to rendering, performance, mobile use, and site compatibility are welcome.
+> Unofficial. It keeps AniGamer's own player and sign-in flow and never reads account credentials. Inspired by [youtube-ambilight](https://github.com/WesselKroos/youtube-ambilight), with additional reference to [bilibili-ambilight](https://github.com/iceorange-dev/bilibili-ambilight).
+
+The interface is in Traditional Chinese; Chinese labels are given in parentheses below so you can find them.
+
+## What it does
+
+| Feature                       | Description                                                                   |
+| ----------------------------- | ----------------------------------------------------------------------------- |
+| Ambient lighting (動態環境光) | Samples the video and casts a glow around the player, with eight spread modes |
+| Page theme (主題配色)         | Six presets, dark / light / follow system, every color customizable           |
+| Page layout (版型重排)        | Rearranges episodes, info, related anime, news and comments, each collapsible |
+| Fonts                         | Bundled CJK fonts, any Google Font, or fonts installed on your device         |
+| Letterbox (影片黑條)          | Detects black bars and covers them with the glow (off by default)             |
+
+Each main feature has its own switch. **If you only want a nicer theme, turn off ambient lighting.** Nothing is sampled and there is no extra rendering cost.
 
 ## Installation
 
-Use **one installation method at a time**. Disable older copies and extensions with the same purpose to avoid duplicate rendering and styles. The interface uses Traditional Chinese; the labels below help you locate its controls.
+Use **one method at a time**. Running several copies duplicates the glow and styles.
 
-### Userscript — recommended
+| Method             | Best for                      | Updates                             |
+| ------------------ | ----------------------------- | ----------------------------------- |
+| Userscript         | Daily use, phones and tablets | Checked by your script manager      |
+| Chromium extension | Desktop Chrome and Edge       | Replace files, then reload manually |
+| Firefox extension  | Trying it out                 | Removed when Firefox restarts       |
 
-[Install from Greasy Fork](https://greasyfork.org/en/scripts/598131-anigamer-ambilight) | [Install the latest GitHub release](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js)
+### Userscript (recommended)
 
-1. Install a compatible script manager from the [Violentmonkey website](https://violentmonkey.github.io/).
-2. Click the GitHub installation link above to open your manager's installation screen. If it downloads instead, import the file through your manager. Alternatively, open the Greasy Fork page and click **Install this script**.
-3. Check the name, source, and version, then install or update.
+1. Install a script manager such as [Violentmonkey](https://violentmonkey.github.io/).
+2. Install the script from one source:
+   - [Greasy Fork](https://greasyfork.org/en/scripts/598131-anigamer-ambilight)
+   - [Latest GitHub release](https://github.com/Hinataragi/anigamer-ambilight/releases/latest/download/anigamer-ambilight.user.js)
+3. Check the name and source, then confirm the installation.
 4. Reload AniGamer and open **觀影設定** (Viewing settings) in the page header.
 
-Mobile and tablet support depends on the browser and script manager. The settings panel adapts to narrower screens.
-
-Greasy Fork installations receive updates from Greasy Fork; GitHub installations use the latest Release. Choose one source and keep updating the same installed copy.
+If the browser downloads the file instead, import it through your manager. Chrome 138+ may require enabling "Allow user scripts" in the manager's extension details.
 
 ### Chromium extension
 
-1. Download the Chromium ZIP from [Releases](https://github.com/Hinataragi/anigamer-ambilight/releases/latest) and extract it into a permanent folder.
-2. Open `chrome://extensions` or `edge://extensions`.
-3. Enable Developer mode, choose **Load unpacked**, and select the folder containing `manifest.json`.
-4. To update, replace the files in that folder, reload the extension, and reload AniGamer.
+1. Download the Chromium ZIP from [Releases](https://github.com/Hinataragi/anigamer-ambilight/releases/latest) and extract it to a permanent folder.
+2. Open `chrome://extensions` (`edge://extensions` in Edge) and enable Developer mode.
+3. Choose **Load unpacked** and select the folder containing `manifest.json`.
+4. Reload AniGamer. The toolbar icon opens the same settings in a popup; the page header also has **觀影設定**.
+
+To update, replace the files and press **Reload** on the extensions page. There are no plans to publish to the Chrome Web Store or Edge Add-ons.
 
 ### Firefox extension
 
-The Firefox package is **unsigned and intended for temporary loading**. Standard Firefox removes it when the browser restarts. Use the userscript for regular use.
+This package is **unsigned and for temporary loading only**. Standard Firefox removes it when the browser restarts. Use the userscript for regular use.
 
 1. Download and extract the Firefox ZIP from Releases.
-2. Open `about:debugging#/runtime/this-firefox`.
-3. Choose **Load Temporary Add-on** and select `manifest.json` in the extracted folder.
-4. Reload AniGamer. Reload updated files through the same debugging page.
+2. Open `about:debugging#/runtime/this-firefox` and choose **Load Temporary Add-on**.
+3. Select `manifest.json` in the extracted folder and reload AniGamer.
 
-See Mozilla's [temporary installation documentation](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/) for the limitations. There are currently no plans to publish in browser extension stores.
+See Mozilla's [temporary installation documentation](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/) for the limitations. For more detail and troubleshooting, see the [installation guide](docs/INSTALL.md) (Traditional Chinese).
 
-## Independent controls
+## Quick start
 
-| Control                       | Purpose                                                   |
-| ----------------------------- | --------------------------------------------------------- |
-| 動態環境光 — Ambient lighting | Sample the video and render surrounding light             |
-| 主題配色 — Page theme         | Apply colors, backgrounds, and transparency               |
-| 版型重排 — Page layout        | Adjust information layout, spacing, and collapse controls |
+1. Open **觀影設定** and go to Preset themes (預設主題). Pick a palette.
+2. Go to Light effects (光暈效果) and choose a quick preset: natural, sharp, soft color or pale glow.
+3. Fine-tune the rest as needed. Changes apply immediately and are saved automatically.
 
-**You can use this as a regular AniGamer theme.** Turn off ambient lighting and keep the page theme enabled. Layout changes have a separate switch, so you can keep the site's original arrangement.
+The reset icon beside a setting restores only that setting; the icon at the top right of a category restores the whole category; Other & backup (其他與備份) resets everything.
 
-## Lighting effects
+## Themes
 
-| Method            | Appearance                                         |
-| ----------------- | -------------------------------------------------- |
-| Radial projection | Extend the image outward; the default method       |
-| Rounded diffusion | Soften the corners                                 |
-| Contour extension | Continue colors from the image boundary            |
-| Soft diffusion    | Retain color while reducing detail                 |
-| Edge reflection   | Mirror the edge and retain more detail             |
-| Edge light bands  | Show edge colors without copying image detail      |
-| Edge stretch      | Stretch source pixels to suggest an extended scene |
-| Swirl extension   | Gradually rotate the outward extension             |
+The six presets change colors, text size and transparency only. They **do not touch player layout, lighting or performance settings**.
 
-These methods do not generate new scenery or use AI. Stretching and reflection can distort people, buildings, and text. Each method has its own shape controls, alongside brightness, spread, blur, detail, saturation, and contrast. Quick presets affect lighting only; resolution and scheduling are configured separately.
+| Theme (中文)                   | Character                            |
+| ------------------------------ | ------------------------------------ |
+| Immersive Ink (沉浸墨藍)       | Ink-blue base, cyan accent           |
+| Low-chroma Graphite (低彩石墨) | Muted grey-black, good at night      |
+| Warm Paper (暖紙淺色)          | Warm light theme for daytime         |
+| Forest Night (森林夜色)        | Deep green base, grey-green accent   |
+| Dusk Violet (暮紫)             | Grey-violet base, soft violet accent |
+| Clear Reading (清楚閱讀)       | Larger text, opaque info panels      |
 
-## Page customization
+Turn on custom palette (使用自訂色票) to set background, panel, button, primary text, secondary text and accent colors with a picker or hex codes (`#112233`, `#123`). Turning it off returns to the selected theme.
 
-- Six presets: immersive blue, graphite, warm paper, forest night, dusk violet, and high-readability colors. Dark, light, and system appearance options are separate.
-- A custom palette accepts color picker input or `#112233` / `#123` codes for backgrounds, panels, controls, primary text, secondary text, and accents. Disable it to return to your selected theme.
-- Independent opacity controls for the header, danmu list, information, related anime, news, and comments. Footer transparency is enabled by default and can be disabled.
-- Controls and search fields can use themed backgrounds, transparent backgrounds, or original site colors.
-- Collapse episodes, information, related anime, news, and comments. Focus mode hides surrounding content; the danmu list also has its own collapse control. Episode buttons can wrap or scroll horizontally.
-- Comment column layout, density, image size, and width controls. The danmu scrollbar can be hidden while retaining scrolling.
-- The player keeps the site's responsive layout by default. A custom theater width requires explicit enabling.
-- System fonts, selected Google Fonts, and custom family names. Font sizing, line height, corner radius, and section spacing are adjustable. Icon fonts are preserved. Optional danmu font changes apply to DOM text, not canvas text or subtitles embedded in the video.
-- Optional hiding of sidebar display ads. In-video ads are not skipped or intercepted, and video sampling pauses during them.
+You can also adjust accent hue and vividness, text size, line height, corner radius, section spacing, and the background opacity of the header, danmaku list, info, related anime, news and comments independently. Buttons and the search box can follow the theme, let the glow show through, or keep the original site colors.
 
-## Settings and backups
+## Lighting
 
-| Category                                 | Contents                                              |
-| ---------------------------------------- | ----------------------------------------------------- |
-| 預設主題 — Themes                        | Theme presets, accent, custom palette                 |
-| 光暈效果 — Lighting                      | Quick presets, extension methods, image detail        |
-| 外觀與字體 — Appearance and fonts        | Dark/light appearance, fonts, text size, menu opacity |
-| 透明度與按鈕 — Transparency and controls | Section backgrounds and control surfaces              |
-| 版面與間距 — Layout and spacing          | Section layout, player layout, spacing                |
-| 顯示與收合 — Visibility and collapse     | Surrounding content, danmu list, collapse controls    |
-| 流暢度與畫質 — Performance and quality   | Lighting resolution, scheduling, renderer status      |
-| 影片黑條 — Black bars                    | Sampling crop and optional coverage                   |
-| 其他與備份 — Other and backups           | Sidebar ads, import, export, reset                    |
+| Mode            | Look                                                           |
+| --------------- | -------------------------------------------------------------- |
+| Radial project  | Spreads outward in all directions (default)                    |
+| Round diffuse   | Softens the corners to reduce the boxy look                    |
+| Contour extend  | Continues the colors of the frame edge                         |
+| Soft diffuse    | Blurs detail and keeps color                                   |
+| Edge reflection | Mirrors the edges and keeps more detail                        |
+| Edge band       | Shows only the colors of the frame                             |
+| Edge stretch    | Fake extension from source pixels; people and text may distort |
+| Swirl           | Rotates gradually as it extends; rotation is adjustable        |
 
-Settings save automatically. Reset icons work per field and per category. **所有設定** returns to the overview; Esc first returns there, then closes the panel. The menu opacity slider is in the header and defaults to 70%.
+These are not AI outpainting and never generate scenes beyond the video. Each mode has its own shape settings, plus brightness, range, blur, detail, saturation and contrast. Quick presets change only the look of the glow; resolution and update mode are set under Smoothness & quality (流暢度與畫質).
 
-Updates preserve settings. Export a backup before updating. New fields use defaults when importing older backups; unknown fields are ignored. The settings format has its own version, separate from the application version. Future incompatible changes should document their migration requirements.
+## Layout and controls
+
+- Episodes, info, related anime, news and comments are expanded by default with collapse buttons. Episodes can also wrap or scroll in one row.
+- Focus mode hides surrounding information. Collapse danmaku hides only the side list; press again to restore.
+- The danmaku list can hide its scrollbar while still scrolling. Comments have adjustable width, density and image size.
+- The player follows the site's adaptive layout by default; a custom theater width must be enabled separately.
+- Sidebar display ads can be hidden. Video ads are neither skipped nor blocked, and sampling pauses during them.
+- Turning off page layout keeps the original arrangement while lighting and colors still work.
+
+## Fonts
+
+Bundled: system fonts, Noto Sans TC, Noto Serif TC, Iansui, LXGW WenKai TC, Chiron Hei and Chiron Sung. Google Fonts load only when you select them; you can also enter any Google Fonts family name, or disable network loading and use a font installed on your device.
+
+Fonts apply to navigation, titles, info, news, comments, the danmaku list and the settings panel; icon fonts are untouched. Player danmaku can optionally use the font, but only DOM text — canvas danmaku and the video's built-in subtitles cannot be changed by page CSS.
+
+## Settings categories
+
+| Category                            | What it controls                                |
+| ----------------------------------- | ----------------------------------------------- |
+| Preset themes (預設主題)            | Six palettes, accent and custom palette         |
+| Light effects (光暈效果)            | Quick presets, spread mode and image detail     |
+| Appearance & fonts (外觀與字體)     | Light/dark, font, reading size, panel opacity   |
+| Opacity & buttons (透明度與按鈕)    | Section backgrounds and control fills           |
+| Layout & spacing (版面與間距)       | Section rearrangement, player layout, spacing   |
+| Display & folding (顯示與收合)      | What to show, folding and the danmaku list      |
+| Smoothness & quality (流暢度與畫質) | Glow resolution, update mode and render status  |
+| Letterbox (影片黑條)                | Sampling crop and optional bar cover            |
+| Other & backup (其他與備份)         | Page ads, settings import/export and full reset |
+
+On desktop the panel is a centered two-column view (categories on the left, content on the right). Phones and tablets use a single column: choose a category, then enter it. Esc goes back to the overview first, then closes the panel.
 
 ## Performance and limits
 
-The default starts at a 960 px lighting canvas and follows new video frames, rather than redrawing a 24 fps anime at 60 fps. Frame blending defaults to zero to avoid old-frame trails. Adaptive quality reduces pixel count under load and can be disabled.
-
-WebGL 2 is preferred, with a Canvas fallback. GPU timing is used when available; otherwise scheduling relies on submission time and missed-frame signals. Browser, driver, and system settings determine hardware acceleration.
-
-Black-bar detection avoids uncertain dark scenes or detected text. Actual black-bar coverage is a separate opt-in setting. Small or dark text can still escape detection. DRM or cross-origin restrictions may prevent sampling; the original player remains available.
-
-Automated tests cover settings interactions, black-bar fixtures, and GPU API calls. Browser API fallbacks exist for Chrome, Edge, Firefox, and Safari; full playback testing across these browsers is still pending.
+- Defaults to a 960 px glow resolution and follows new video frames instead of redrawing 24 fps footage at 60 fps. Frame blending defaults to 0 to avoid trails.
+- Auto quality reduces pixel count under load. If WebGL 2 is unavailable it falls back to Canvas. Hardware acceleration is decided by your browser, driver and system and cannot be forced.
+- Letterbox cover is off by default. With subtitles, graphics or dark scenes it keeps the original frame, and may still miss very small or dark text.
+- Some DRM or cross-origin video cannot be sampled; the original player is kept and playback is unaffected.
+- Full real-device testing across browsers is not finished. Phones and tablets need a browser or manager that supports userscripts.
 
 ## Privacy
 
-Video sampling stays in the browser. This project has no analytics endpoint or data collection server. Settings are stored by your script manager or browser; extension settings may sync through your browser account. Selected online fonts contact Google Fonts. See the [privacy policy](docs/PRIVACY.en.md) for storage, external connections, exports, and removal.
+Settings are stored by the script manager or browser; extensions may sync them through your browser account depending on its settings. Fonts are requested from Google Fonts only if you choose a web font. Account credentials are never read and sign-in is never intercepted. See the [privacy policy](docs/PRIVACY.en.md).
 
 ## Development
 
-Source files are maintained separately; the build produces a readable single-file userscript. Node.js and npm are required.
+Requires Node.js and npm. All three packages are built from the same `src/`.
 
 ```sh
 npm ci
@@ -122,25 +156,37 @@ npm test
 npm run build
 ```
 
-| Path                | Contents                                                               |
-| ------------------- | ---------------------------------------------------------------------- |
-| `src/`              | Settings, rendering, black-bar detection, site integration, and styles |
-| `scripts/build.mjs` | Distribution builder                                                   |
-| `tests/`            | Settings, black-bar fixtures, and GPU API contracts                    |
-| `docs/`             | Installation and privacy documentation                                 |
-| `.github/`          | Bilingual issue forms, CI, and release workflow                        |
+| Output                       | Purpose                     |
+| ---------------------------- | --------------------------- |
+| `dist/ani-ambilight.user.js` | Single-file userscript      |
+| `dist/extension/`            | Chromium extension          |
+| `dist/extension-firefox/`    | Firefox temporary extension |
 
-Outputs: `dist/ani-ambilight.user.js`, `dist/extension/`, and `dist/extension-firefox/`. Dependencies, generated distributions, and ZIP files are excluded from version control.
+```text
+src/                   settings, renderer, letterbox detection, page integration, styles
+  settings.js          setting definitions, theme presets, panel DOM
+  settings-ui.css      settings panel and extension popup styles
+  effects.css          theme colors (light/dark and custom palette)
+  content.css          page layout rearrangement
+  ambient-renderer.js  WebGL 2 / Canvas glow renderer
+scripts/build.mjs      builds the three packages
+tests/                 settings, letterbox and GPU API tests
+docs/                  install and privacy notes
+```
 
-GitHub Actions runs tests and builds on commits and pull requests. Version tags matching the package version create a Release with all three installation packages.
+CI runs tests and a build on every push and pull request. Pushing a `v*.*.*` tag that matches the project version creates a GitHub Release automatically.
 
-For bug reports, include browser and manager versions, the affected page, settings, and reproduction steps. Remove personal information from screenshots and backups before sharing.
+## Contributing
+
+This project is a starting point; I may not check issues often and replies can take time. Forks and substantial improvements to rendering, performance, mobile use and site compatibility are welcome.
+
+When reporting a problem, include browser and manager versions, the AniGamer page URL, the effect and settings in use, and steps to reproduce. Please crop out account notifications and personal data from screenshots.
 
 ## License and credits
 
-Released under the [MIT license](LICENSE). Redistribution must retain copyright and license notices. The license applies to project code, not AniGamer trademarks, website assets, or video content.
+[MIT](LICENSE): use, modify, redistribute and use commercially, keeping the copyright and license notice. The license covers this project's code, not AniGamer trademarks, site assets or video content.
 
-- [youtube-ambilight](https://github.com/WesselKroos/youtube-ambilight), by Wessel Kroos: primary inspiration for lighting effects and performance approaches. Original notice: [LICENSE.youtube-ambilight](LICENSE.youtube-ambilight).
-- [bilibili-ambilight](https://github.com/iceorange-dev/bilibili-ambilight), by iceorange-dev: reference for integration into an anime playback site. Original notice: [LICENSE.bilibili-ambilight](LICENSE.bilibili-ambilight), including the upstream Wessel Kroos notice.
+- [youtube-ambilight](https://github.com/WesselKroos/youtube-ambilight) by Wessel Kroos — main inspiration for the glow effects and performance approach. License: [LICENSE.youtube-ambilight](LICENSE.youtube-ambilight).
+- [bilibili-ambilight](https://github.com/iceorange-dev/bilibili-ambilight) by iceorange-dev — reference for integrating ambient light into an anime site. License: [LICENSE.bilibili-ambilight](LICENSE.bilibili-ambilight).
 
-The software is provided **as is**, without warranties. Full warranty and liability terms are in LICENSE. This project is not affiliated with Bahamut and is not endorsed by AniGamer or the authors of the referenced projects.
+The software is provided as is, with no guarantee of continued compatibility or freedom from errors; see LICENSE. This project is not affiliated with Gamer (Bahamut) and is not endorsed by AniGamer or the projects above.

@@ -1,3 +1,4 @@
+/* 擴充功能選單（Chromium／Firefox）。色彩 token 來自 settings-ui.css。 */
 :root {
   color-scheme: dark;
   font:
@@ -11,23 +12,82 @@
   box-sizing: border-box;
 }
 body {
-  margin: 0;
   width: 360px;
-  color: #f2f6fa;
-  background: #080d16;
+  margin: 0;
+  color: var(--ani-editor-text);
+  background: var(--ani-editor-bg);
 }
 main {
   padding: 20px;
 }
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ani-editor-line);
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--ani-editor-accent);
+  color: var(--ani-editor-accent-ink);
+}
+.mark svg {
+  width: 23px;
+  height: 23px;
+}
+h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+}
+header p,
+.tip {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--ani-editor-muted);
+}
+.tip {
+  margin-top: 19px;
+  line-height: 1.6;
+}
+.switch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: var(--ani-editor-radius);
+  background: var(--ani-editor-surface);
+  font-weight: 600;
+}
+section {
+  margin-top: 16px;
+}
 details {
   margin-top: 16px;
   padding-top: 12px;
-  border-top: 1px solid #344456;
+  border-top: 1px solid var(--ani-editor-line);
 }
 summary {
-  cursor: pointer;
-  font-weight: 600;
   padding: 5px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+output {
+  color: var(--ani-editor-accent);
+  font-variant-numeric: tabular-nums;
+}
+input[type='range'] {
+  width: 100%;
+  margin: 0 0 14px;
+  accent-color: var(--ani-editor-accent);
+  cursor: pointer;
 }
 .ani-settings-fields {
   display: grid;
@@ -40,7 +100,7 @@ summary {
   gap: 8px;
 }
 .ani-settings-range input {
-  grid-column: 1/-1;
+  grid-column: 1 / -1;
   width: 100%;
 }
 .ani-settings-select {
@@ -48,13 +108,13 @@ summary {
   gap: 8px;
 }
 .ani-settings-select select {
-  font: inherit;
-  background: #172332;
-  color: #f2f6fa;
-  border: 1px solid #496273;
-  border-radius: 8px;
-  padding: 8px;
   width: 100%;
+  padding: 8px;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: 10px;
+  background: var(--ani-editor-surface);
+  color: var(--ani-editor-text);
+  font: inherit;
 }
 .ani-settings-preset {
   margin-bottom: 18px;
@@ -74,109 +134,17 @@ summary {
   flex: 1;
   min-height: 38px;
   border: 0;
-  border-radius: 8px;
-  background: #304553;
-  color: #f2f6fa;
+  border-radius: 10px;
+  background: var(--ani-editor-raised);
+  color: var(--ani-editor-text);
   font: inherit;
   cursor: pointer;
 }
 .ani-settings-status {
   font-size: 12px;
-  color: #bdcbd9;
+  color: var(--ani-editor-muted);
 }
 :focus-visible {
-  outline: 2px solid #79dce4;
-  outline-offset: 3px;
-}
-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid #344456;
-}
-.mark {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #42c8d8;
-  border-radius: 8px;
-  background: #102b35;
-  color: #b6f4fa;
-}
-.mark svg {
-  width: 23px;
-  height: 23px;
-}
-h1 {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-}
-header p,
-.tip {
-  margin: 2px 0 0;
-  color: #bdcbd9;
-  font-size: 12px;
-}
-.switch-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 18px;
-  padding: 13px 14px;
-  border: 1px solid #344456;
-  border-radius: 8px;
-  background: #172332;
-  font-weight: 600;
-}
-section {
-  margin-top: 20px;
-}
-section > label:not(.switch-row) {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-  color: #e4edf6;
-}
-output {
-  color: #8ee9f2;
-  font-variant-numeric: tabular-nums;
-}
-input[type='range'] {
-  width: 100%;
-  margin: 0 0 14px;
-  accent-color: #42c8d8;
-  cursor: pointer;
-}
-input[type='checkbox'] {
-  width: 18px;
-  height: 18px;
-  margin: 0;
-  accent-color: #42c8d8;
-  cursor: pointer;
-}
-.options {
-  display: grid;
-  gap: 12px;
-  padding-top: 17px;
-  border-top: 1px solid #344456;
-}
-.options label {
-  display: flex !important;
-  justify-content: flex-start !important;
-  align-items: center;
-  gap: 10px;
-  margin: 0 !important;
-  font-size: 13px;
-}
-.tip {
-  margin-top: 19px;
-  line-height: 1.6;
-}
-:focus-visible {
-  outline: 2px solid #42c8d8;
+  outline: 2px solid var(--ani-editor-accent);
   outline-offset: 3px;
 }

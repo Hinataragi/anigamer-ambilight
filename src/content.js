@@ -282,8 +282,8 @@
       (settings.appearance === 'system' && systemAppearance.matches);
     const palettes = {
       slate: {
-        dark: ['#0b1017', '19,29,39', '#202d38', '#f2f5f8', '#b7c7d3'],
-        light: ['#eef3f7', '248,251,254', '#e2ebf1', '#17212b', '#435365'],
+        dark: ['#0d1117', '20,25,33', '#222a36', '#eef1f6', '#a3afbf'],
+        light: ['#f1f4f8', '250,252,254', '#e3e9f0', '#151b24', '#445062'],
       },
       neutral: {
         dark: ['#121212', '26,26,26', '#292929', '#f5f5f5', '#c4c4c4'],

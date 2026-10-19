@@ -1,24 +1,24 @@
 /* Colors are independent of the replacement layout. Native player controls,
    icons, account forms and navigation handlers keep their original behavior. */
 body.ani-ambientlight-ui {
-  --ani-surface-rgb: 19, 29, 39;
-  --ani-base: #0b1017;
-  --ani-soft: #202d38;
+  --ani-surface-rgb: 20, 25, 33;
+  --ani-base: #0d1117;
+  --ani-soft: #222a36;
   --ani-panel: rgba(var(--ani-surface-rgb), var(--ani-panel-opacity, 0.82));
-  --ani-text: #f2f5f8;
-  --ani-muted: #b7c7d3;
+  --ani-text: #eef1f6;
+  --ani-muted: #a3afbf;
   --ani-accent: #79dce4;
-  --ani-line: #b7c7d330;
+  --ani-line: #a3afbf30;
   color: var(--ani-text);
   color-scheme: dark;
   font-family: var(--ani-font, system-ui, sans-serif) !important;
 }
 body.ani-ambientlight-ui.ani-theme-light {
-  --ani-surface-rgb: 248, 251, 254;
-  --ani-base: #eef3f7;
-  --ani-soft: #e2ebf1;
-  --ani-text: #17212b;
-  --ani-muted: #435365;
+  --ani-surface-rgb: 250, 252, 254;
+  --ani-base: #f1f4f8;
+  --ani-soft: #e3e9f0;
+  --ani-text: #151b24;
+  --ani-muted: #445062;
   --ani-accent: #076777;
   --ani-line: #2a425738;
   color-scheme: light;
@@ -637,7 +637,7 @@ body.ani-ambientlight-page .ani-view-settings-panel {
 }
 .ani-settings-group > summary::after {
   content: '＋';
-  color: #b7c7d3;
+  color: #a3afbf;
   font-size: 18px;
 }
 .ani-settings-group[open] > summary::after {
@@ -655,7 +655,7 @@ body.ani-ambientlight-page .ani-view-settings-panel {
   min-height: 30px;
 }
 .ani-settings-switch + .ani-settings-switch {
-  border-top: 1px solid #b7c7d315;
+  border-top: 1px solid #a3afbf15;
 }
 .ani-settings-select:first-of-type {
   margin-top: 16px;
@@ -1183,7 +1183,7 @@ body.ani-ambientlight-ui
   border: 1px solid var(--ani-line, #496273);
   border-radius: 8px;
   background: transparent;
-  color: var(--ani-text, #f2f5f8);
+  color: var(--ani-text, #eef1f6);
   font: inherit;
   font-size: 12px;
   white-space: nowrap;
