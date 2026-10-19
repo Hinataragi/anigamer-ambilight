@@ -3391,18 +3391,18 @@ body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-sectio
   gap: 12px;
 }
 body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list {
-  display: grid !important;
-  grid-template-columns: 56px minmax(0, 1fr);
-  align-items: start;
+  display: flex !important;
+  align-items: flex-start;
   gap: 12px;
   width: 100% !important;
   float: none !important;
 }
 body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) .class-header {
   display: flex;
-  align-items: baseline;
-  gap: 6px;
-  padding-top: 6px;
+  flex: 0 0 64px;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 7px;
 }
 body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) .class-header h3 {
   margin: 0;
@@ -3416,6 +3416,8 @@ body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-sectio
 }
 body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list > ul {
   display: flex !important;
+  flex: 1 1 auto;
+  min-width: 0;
   flex-wrap: wrap;
   gap: 6px;
   max-height: none !important;
