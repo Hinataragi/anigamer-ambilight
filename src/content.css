@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap');
+
 :root {
   --ani-base: #09131c;
   --ani-panel: #13232d;
@@ -3186,20 +3188,24 @@ body.ani-ambientlight-ui
   .anime-tag-row {
   grid-area: 1 / 1;
   align-self: end;
+  justify-self: end;
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 28px 8px 8px;
-  border-radius: 0 0 12px 12px;
-  background: linear-gradient(transparent, rgb(0 0 0 / 0.72));
+  margin: 0 8px 8px 0;
   pointer-events: none;
 }
 body.ani-ambientlight-ui
   #BH_background
   .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
-  .show-view-number,
+  .show-view-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(6px);
+}
 body.ani-ambientlight-ui
   #BH_background
   .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
@@ -3207,6 +3213,7 @@ body.ani-ambientlight-ui
   p {
   color: #f4f6f8 !important;
   font-size: 12px;
+  margin: 0;
 }
 body.ani-ambientlight-ui
   #BH_background
@@ -3245,4 +3252,11 @@ body.ani-ambientlight-ui
   padding: 0 !important;
   color: var(--ani-muted) !important;
   font-size: 13px;
+}
+
+/* ── 十、預設字體：Noto Sans TC（Google Fonts），找不到時退回系統字體 ── */
+body.ani-ambientlight-ui,
+body.ani-ambientlight-ui button,
+body.ani-ambientlight-ui input {
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', system-ui, sans-serif;
 }
