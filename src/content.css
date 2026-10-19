@@ -3199,7 +3199,10 @@ body.ani-ambientlight-ui
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 9px;
+  height: 20px;
+  padding: 0 7px;
+  font-size: 12px;
+  line-height: 16px;
   border-radius: 999px;
   background: rgb(0 0 0 / 0.6);
   backdrop-filter: blur(6px);
@@ -3211,6 +3214,7 @@ body.ani-ambientlight-ui
   p {
   color: #f4f6f8 !important;
   font-size: 12px;
+  line-height: 16px;
   margin: 0;
 }
 body.ani-ambientlight-ui
