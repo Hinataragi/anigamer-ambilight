@@ -3346,3 +3346,8 @@ body.ani-ambientlight-ui .anime_dialogify .dialogify__close {
   border-radius: 999px;
   background: var(--ani-soft);
 }
+body.ani-ambientlight-ui .anime_dialogify .dialogify__close img {
+  width: 12px;
+  height: 12px;
+  filter: brightness(0) invert(1);
+}
