@@ -409,11 +409,11 @@
       name: '外觀與字體',
       description: '深淺色、中文字體與閱讀大小',
       keys: [
+        'appearance',
         'fontFamily',
         'customFontName',
         'customFontGoogle',
         'danmuFontEnabled',
-        'appearance',
         'textSize',
         'textLeading',
         'settingsOpacity',

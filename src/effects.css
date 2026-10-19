@@ -33,8 +33,8 @@ body.ani-ambientlight-ui .mainmenu > .container-player > ul {
 body.ani-ambientlight-ui :is(.top_sky, .sky, .mainmenu) {
   background:
     linear-gradient(
-      rgba(var(--ani-scene-rgb, 40, 100, 120), var(--ani-header-tint)),
-      rgba(var(--ani-scene-rgb, 40, 100, 120), var(--ani-header-tint))
+      rgba(var(--ani-scene-rgb, 110, 125, 145), var(--ani-header-tint)),
+      rgba(var(--ani-scene-rgb, 110, 125, 145), var(--ani-header-tint))
     ),
     rgba(var(--ani-surface-rgb), var(--ani-header-opacity)) !important;
 }
@@ -155,7 +155,7 @@ body.ani-ambientlight-ui:not(.ani-ambientlight-page) {
   background:
     radial-gradient(
       ellipse at 50% 0,
-      rgba(var(--ani-scene-rgb, 40, 100, 120), 0.13),
+      rgba(var(--ani-scene-rgb, 110, 125, 145), 0.13),
       transparent 65%
     ),
     var(--ani-base) !important;
@@ -164,8 +164,8 @@ body.ani-ambientlight-ui:not(.ani-ambientlight-page)
   :is(.top_sky, .sky, .mainmenu) {
   background:
     linear-gradient(
-      rgba(var(--ani-scene-rgb, 40, 100, 120), var(--ani-header-tint, 0.35)),
-      rgba(var(--ani-scene-rgb, 40, 100, 120), var(--ani-header-tint, 0.35))
+      rgba(var(--ani-scene-rgb, 110, 125, 145), var(--ani-header-tint, 0.35)),
+      rgba(var(--ani-scene-rgb, 110, 125, 145), var(--ani-header-tint, 0.35))
     ),
     rgba(var(--ani-surface-rgb), var(--ani-header-opacity, 0.8)) !important;
   color: var(--ani-text) !important;
@@ -234,11 +234,11 @@ body.ani-ambientlight-ui:not(.ani-ambientlight-page) .season .playing a {
   color: #fff !important;
 }
 body.ani-ambientlight-page:not(.ani-ambientlight-ui) {
-  --ani-left-rgb: 40, 100, 120 !important;
-  --ani-right-rgb: 40, 100, 120 !important;
+  --ani-left-rgb: 110, 125, 145 !important;
+  --ani-right-rgb: 110, 125, 145 !important;
 }
 body.ani-ambientlight-ui:not(.ani-ambientlight-ui) {
-  --ani-scene-rgb: 40, 100, 120 !important;
+  --ani-scene-rgb: 110, 125, 145 !important;
 }
 body.ani-ambientlight-ui .anime_search :is(input, .search-box-input) {
   background: rgba(var(--ani-surface-rgb), 0.94) !important;
@@ -563,11 +563,11 @@ body.ani-ambientlight-ui .subtitle {
   background:
     linear-gradient(
       rgba(
-        var(--ani-scene-right-rgb, 40, 100, 120),
+        var(--ani-scene-right-rgb, 110, 125, 145),
         var(--ani-panel-tint, 0.14)
       ),
       rgba(
-        var(--ani-scene-right-rgb, 40, 100, 120),
+        var(--ani-scene-right-rgb, 110, 125, 145),
         var(--ani-panel-tint, 0.14)
       )
     ),
@@ -591,7 +591,7 @@ body.ani-ambientlight-ui .subtitle .ani-tabs-link.is-active {
   color: var(--ani-accent) !important;
 }
 body.ani-ambientlight-ui .subtitle #sub_list li:hover {
-  background: rgba(var(--ani-scene-right-rgb, 40, 100, 120), 0.2) !important;
+  background: rgba(var(--ani-scene-right-rgb, 110, 125, 145), 0.2) !important;
   color: var(--ani-text) !important;
 }
 body.ani-ambientlight-ui .mainmenu .btn-app-download > .btn-title {
@@ -1173,8 +1173,10 @@ body.ani-ambientlight-ui
   .season
   li.playing
   a {
-  color: var(--ani-accent) !important;
-  box-shadow: inset 0 -3px var(--ani-accent) !important;
+  border-color: var(--ani-accent) !important;
+  background: color-mix(in srgb, var(--ani-accent) 22%, transparent) !important;
+  color: var(--ani-text) !important;
+  font-weight: 700;
 }
 .ani-focus-toggle,
 .ani-danmu-toggle {
@@ -2152,4 +2154,28 @@ body.ani-ambientlight-ui:not(.ani-footer-glow)
     .bottom-announcement
   ) {
   background: var(--ani-panel-soft) !important;
+}
+
+/* 原站藍色按鈕（白字配 #00b4d8 對比僅 2.5:1）改用主題重點色，文字取底色以達 AA。 */
+body.ani-ambientlight-ui .bluebtn {
+  background: var(--ani-accent) !important;
+  color: var(--ani-base) !important;
+}
+/* 手機側欄內的說明段落不貼齊視窗邊緣。 */
+body.ani-ambientlight-ui .ani-tab-content__item > p {
+  padding-inline: 16px;
+  color: var(--ani-text) !important;
+}
+
+/* 淺色主題：這些徽章坐在原站的深色底上，文字不能跟著主題變深。 */
+body.ani-theme-light.ani-ambientlight-ui #BH_background :is(.theme-number, .theme-time),
+body.ani-theme-light.ani-ambientlight-ui
+  #blockVideoInSeason
+  :is(.anime-watch-number, .anime-watch-number p, .anime-watch-number .material-icons) {
+  color: #f4f6f8 !important;
+}
+/* 作品標題與集數列與其他區塊共用左右內距。 */
+body.ani-ambientlight-ui #BH_background .anime-title,
+body.ani-ambientlight-ui .ani-episode-shelf {
+  padding-inline: 14px;
 }

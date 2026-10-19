@@ -1184,8 +1184,12 @@
         pageGlow.width = width;
         pageGlow.height = height;
       }
-      pageGlow.dataset.renderer = renderer?.kind || 'unavailable';
-      pageGlow.dataset.acceleration = renderer?.acceleration || 'unknown';
+      // 值沒變就不寫：每影格寫 DOM 屬性會使樣式失效，下一次量測又得重排。
+      const kind = renderer?.kind || 'unavailable',
+        acceleration = renderer?.acceleration || 'unknown';
+      if (pageGlow.dataset.renderer !== kind) pageGlow.dataset.renderer = kind;
+      if (pageGlow.dataset.acceleration !== acceleration)
+        pageGlow.dataset.acceleration = acceleration;
       const scale = Math.min(
         r.width / video.videoWidth,
         r.height / video.videoHeight,

@@ -8,7 +8,7 @@
   --ani-editor-surface: #1b212b;
   --ani-editor-raised: #232b37;
   --ani-editor-text: #eef1f6;
-  --ani-editor-muted: #a3afbf;
+  --ani-editor-muted: #b4bfcc;
   --ani-editor-accent: #8ccfff;
   --ani-editor-accent-ink: #0b1a26;
   --ani-editor-line: #2f3947;
@@ -45,9 +45,10 @@ body .ani-view-settings-panel {
   border-radius: 20px;
   background: rgba(
     var(--ani-editor-bg-rgb),
-    var(--ani-editor-opacity, 1)
+    max(var(--ani-editor-opacity, 1), 0.85)
   ) !important;
-  box-shadow: 0 24px 64px rgb(0 0 0 / 45%);
+  backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
   font-family: var(--ani-font, system-ui, sans-serif) !important;
 }
 body .ani-view-settings-panel .ani-settings-heading {
@@ -61,7 +62,7 @@ body .ani-view-settings-panel .ani-settings-heading {
 .ani-settings-scroll {
   flex: 1;
   min-height: 0;
-  padding: 4px 0 16px;
+  padding: 4px 12px 16px 0;
   overflow: auto;
   overscroll-behavior: contain;
   scroll-padding-top: 80px;
@@ -641,7 +642,7 @@ body .ani-view-settings-panel .ani-method-list button[aria-pressed='true'],
 }
 .ani-method-grid button[aria-pressed='true'] {
   border-color: var(--ani-editor-accent);
-  box-shadow: inset 3px 0 var(--ani-editor-accent);
+  background: var(--ani-editor-raised);
 }
 
 /* 六、桌面：置中大面板，分類側欄 + 內容雙欄。 */
@@ -721,7 +722,6 @@ body .ani-view-settings-panel .ani-method-list button[aria-pressed='true'],
   }
   body .ani-view-settings-panel .ani-settings-rail button[aria-current='page'] {
     background: var(--ani-editor-surface) !important;
-    box-shadow: inset 3px 0 var(--ani-editor-accent);
     color: var(--ani-editor-accent) !important;
     font-weight: 650;
   }
@@ -785,5 +785,33 @@ body .ani-view-settings-panel .ani-method-list button[aria-pressed='true'],
     margin-bottom: 6px;
     padding-bottom: 6px;
     border-bottom: 1px solid var(--ani-editor-line);
+  }
+}
+
+/* 八、審查後補強 */
+/* 面板不透明度下限 0.85：加上模糊後，淺色頁面與影片黑底上的說明文字仍可達 AA。 */
+body .ani-view-settings-panel {
+  z-index: 2147483000;
+}
+.ani-view-settings-panel input::placeholder {
+  color: var(--ani-editor-muted) !important;
+  opacity: 1;
+}
+body .ani-view-settings-panel .ani-settings-select input[type='text'] {
+  background: var(--ani-editor-surface) !important;
+  color: var(--ani-editor-text) !important;
+}
+.ani-theme-swatches i {
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 22%);
+}
+/* 目前使用中的預設主題：除了外框，再加勾號，不只靠顏色辨識。 */
+.ani-theme-presets > button[aria-pressed='true'] strong::after {
+  content: ' ✓';
+  color: var(--ani-editor-accent);
+}
+@media (min-width: 1024px) {
+  /* 桌面已有左側分類欄，不再重複顯示返回鈕。 */
+  .ani-settings-breadcrumb [data-settings-back] {
+    display: none !important;
   }
 }

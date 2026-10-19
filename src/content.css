@@ -12,7 +12,7 @@ body.ani-ambientlight-page {
   line-height: 1.55;
 }
 body.ani-ambientlight-ui {
-  --ani-scene-rgb: 40, 100, 120;
+  --ani-scene-rgb: 110, 125, 145;
   background:
     radial-gradient(ellipse 78% 38% at 50% 18%, rgba(var(--ani-scene-rgb), 0.16), transparent 76%),
     var(--ani-base) !important;
@@ -46,6 +46,8 @@ body.ani-ambientlight-ui ::placeholder {
   height: 100vh;
   z-index: 0;
   pointer-events: none;
+  /* 光暈 canvas 的尺寸固定，隔離版面與繪製，避免影格更新牽動其他元素。 */
+  contain: strict;
   transition: opacity 0.25s ease-out;
 }
 .ani-ambientlight-page-glow.ani-ambientlight-hidden {
@@ -76,9 +78,9 @@ body.ani-ambientlight-ui .top_sky {
   background:
     linear-gradient(
       110deg,
-      rgba(var(--ani-scene-left-rgb, 40, 100, 120), calc(var(--ani-header-tint, 0.35) * 0.5)),
-      rgba(var(--ani-scene-top-rgb, 40, 100, 120), calc(var(--ani-header-tint, 0.35) * 0.3)) 50%,
-      rgba(var(--ani-scene-right-rgb, 40, 100, 120), calc(var(--ani-header-tint, 0.35) * 0.5))
+      rgba(var(--ani-scene-left-rgb, 110, 125, 145), calc(var(--ani-header-tint, 0.35) * 0.5)),
+      rgba(var(--ani-scene-top-rgb, 110, 125, 145), calc(var(--ani-header-tint, 0.35) * 0.3)) 50%,
+      rgba(var(--ani-scene-right-rgb, 110, 125, 145), calc(var(--ani-header-tint, 0.35) * 0.5))
     ),
     rgba(var(--ani-surface-rgb, 20, 25, 33), var(--ani-header-opacity, 0.8)) !important;
 }
@@ -131,8 +133,8 @@ body.ani-layout-nav .anime_search-input {
 body.ani-ambientlight-ui .anime_search-input {
   background:
     linear-gradient(
-      rgba(var(--ani-scene-top-rgb, 40, 100, 120), 0.14),
-      rgba(var(--ani-scene-top-rgb, 40, 100, 120), 0.14)
+      rgba(var(--ani-scene-top-rgb, 110, 125, 145), 0.14),
+      rgba(var(--ani-scene-top-rgb, 110, 125, 145), 0.14)
     ),
     #0b1723b8 !important;
 }
@@ -1733,8 +1735,8 @@ body.ani-theater-layout.ani-ambientlight-ui
   > .subtitle {
   background:
     linear-gradient(
-      rgba(var(--ani-scene-right-rgb, 40, 100, 120), var(--ani-panel-tint, 0.14)),
-      rgba(var(--ani-scene-right-rgb, 40, 100, 120), var(--ani-panel-tint, 0.14))
+      rgba(var(--ani-scene-right-rgb, 110, 125, 145), var(--ani-panel-tint, 0.14)),
+      rgba(var(--ani-scene-right-rgb, 110, 125, 145), var(--ani-panel-tint, 0.14))
     ),
     rgba(var(--ani-surface-rgb), var(--ani-panel-opacity, 0.82)) !important;
 }
