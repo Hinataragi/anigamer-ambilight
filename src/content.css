@@ -3366,3 +3366,100 @@ body.ani-ambientlight-ui .anime_dialogify .dialogify__close::before {
 body.ani-ambientlight-ui .anime_dialogify .dialogify__close::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+/* ── 十二、所有動畫：篩選器改為頂部橫向膠囊列，卡片區拉滿寬度 ── */
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 18px 0 !important;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) > .filter-section {
+  position: static !important;
+  grid-column: 1 / -1;
+  display: grid !important;
+  gap: 14px;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 16px 18px;
+  border: 1px solid var(--ani-line);
+  border-radius: 16px;
+  background: var(--ani-panel);
+  box-sizing: border-box;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) .class-wrapper {
+  display: grid;
+  gap: 12px;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list {
+  display: grid !important;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  width: 100% !important;
+  float: none !important;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) .class-header {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding-top: 6px;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) .class-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ani-text) !important;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) .class-header span {
+  font-size: 12px;
+  color: var(--ani-muted) !important;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list > ul {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: none !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list li {
+  float: none !important;
+  margin: 0 !important;
+  width: auto !important;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list li a {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--ani-soft) !important;
+  color: var(--ani-muted) !important;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list li a:hover {
+  color: var(--ani-text) !important;
+  border-color: var(--ani-line);
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list li.now a {
+  background: var(--ani-accent) !important;
+  color: var(--ani-base) !important;
+  font-weight: 700;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) section.class_list li a:focus-visible {
+  outline: 2px solid var(--ani-accent);
+  outline-offset: 2px;
+}
+body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-section) > .theme-list-block {
+  grid-column: 1 / -1;
+  width: 100% !important;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 176px), 1fr)) !important;
+  gap: 26px 18px !important;
+}
