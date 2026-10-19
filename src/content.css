@@ -3111,3 +3111,138 @@ body.ani-ambientlight-ui .anime-card .delete-btn {
 body.ani-ambientlight-page .anime-card .history-list-triangle {
   display: none !important;
 }
+
+/* ── 九、我的動畫：卡片網格（海報為主，資訊在下，人氣疊在海報角落） ── */
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-list-block {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 172px), 1fr));
+  gap: 28px 20px;
+  width: 100% !important;
+  height: auto !important;
+  padding: 4px 0 32px !important;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-list-main {
+  display: grid !important;
+  grid-template-rows: auto auto;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  float: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--ani-text) !important;
+  text-decoration: none;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-img-block {
+  grid-area: 1 / 1;
+  position: relative;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: 12px !important;
+  background: var(--ani-soft);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-img-block
+  img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-list-main:hover
+  .theme-img-block {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 2px var(--ani-accent),
+    0 10px 24px rgb(0 0 0 / 0.35);
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .anime-detail-block {
+  display: contents;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .anime-tag-row {
+  grid-area: 1 / 1;
+  align-self: end;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 28px 8px 8px;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(transparent, rgb(0 0 0 / 0.72));
+  pointer-events: none;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .show-view-number,
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .show-view-number
+  p {
+  color: #f4f6f8 !important;
+  font-size: 12px;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-info-block {
+  grid-area: 2 / 1;
+  padding: 10px 2px 0;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  color: var(--ani-text) !important;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  .theme-detail-info-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-top: 4px;
+}
+body.ani-ambientlight-ui
+  #BH_background
+  .animate-theme-list:not(:has(.filter-section)):not(:has(#blockVideoInSeason))
+  :is(.theme-time, .theme-number) {
+  background: none !important;
+  padding: 0 !important;
+  color: var(--ani-muted) !important;
+  font-size: 13px;
+}
