@@ -12,7 +12,7 @@
   box-sizing: border-box;
 }
 body {
-  width: 360px;
+  width: 380px;
   margin: 0;
   color: var(--ani-editor-text);
   background: var(--ani-editor-bg);
@@ -65,6 +65,11 @@ header p,
   border-radius: var(--ani-editor-radius);
   background: var(--ani-editor-surface);
   font-weight: 600;
+  min-height: 52px;
+  cursor: pointer;
+}
+.switch-row:has(input:checked) {
+  border-color: rgb(140 196 245 / 45%);
 }
 section {
   margin-top: 16px;

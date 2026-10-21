@@ -3,16 +3,17 @@
 
 /* 一、色彩 token：面板配色固定，背景透明度由 --ani-editor-opacity 控制。 */
 :where(.ani-view-settings-panel, body:has(#settings-controls)) {
-  --ani-editor-bg: #12161d;
-  --ani-editor-bg-rgb: 18, 22, 29;
-  --ani-editor-surface: #1b212b;
-  --ani-editor-raised: #232b37;
-  --ani-editor-text: #eef1f6;
-  --ani-editor-muted: #b4bfcc;
-  --ani-editor-accent: #8ccfff;
-  --ani-editor-accent-ink: #0b1a26;
-  --ani-editor-line: #2f3947;
-  --ani-editor-radius: 12px;
+  --ani-editor-bg: #0e1014;
+  --ani-editor-bg-rgb: 14, 16, 20;
+  --ani-editor-surface: #171a20;
+  --ani-editor-raised: #20242c;
+  --ani-editor-text: #eceef2;
+  --ani-editor-muted: #a6adba;
+  --ani-editor-accent: #8cc4f5;
+  --ani-editor-accent-ink: #0a1622;
+  --ani-editor-line: #2a2f39;
+  --ani-editor-glow: rgb(140 196 245 / 35%);
+  --ani-editor-radius: 14px;
   scrollbar-color: #4a586b transparent;
   caret-color: var(--ani-editor-accent);
 }
@@ -813,5 +814,170 @@ body .ani-view-settings-panel .ani-settings-select input[type='text'] {
   /* 桌面已有左側分類欄，不再重複顯示返回鈕。 */
   .ani-settings-breadcrumb [data-settings-back] {
     display: none !important;
+  }
+}
+
+/* 九、重新設計：放映室控制台。
+   一個記號：目前選中、開啟的東西帶一圈柔光，像影片投在牆上的光。其餘保持安靜，不加裝飾條。
+   易用性：點擊區一律 44px 以上、按下有回饋、焦點環一致、禁用狀態看得出來。 */
+:where(.ani-view-settings-panel, body:has(#settings-controls)) {
+  touch-action: manipulation;
+}
+body .ani-view-settings-panel {
+  border-radius: 24px;
+  box-shadow: 0 24px 64px -12px rgb(0 0 0 / 60%);
+}
+body .ani-view-settings-panel .ani-settings-heading h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* 導覽：分類做成卡片，標題、說明、箭頭各占固定位置。 */
+.ani-settings-home {
+  display: grid;
+  gap: 8px;
+}
+.ani-settings-category {
+  min-height: 72px;
+  padding: 14px 16px !important;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: var(--ani-editor-radius);
+  background: var(--ani-editor-surface) !important;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.ani-settings-category:hover {
+  border-color: var(--ani-editor-accent);
+  background: var(--ani-editor-raised) !important;
+  color: var(--ani-editor-text) !important;
+}
+.ani-settings-category:active {
+  transform: scale(0.985);
+}
+.ani-settings-category svg {
+  color: var(--ani-editor-muted);
+  transition: transform 0.15s, color 0.15s;
+}
+.ani-settings-category:hover svg {
+  color: var(--ani-editor-accent);
+  transform: translateX(3px);
+}
+
+/* 欄位列：重設鈕平時安靜，滑過該列才顯示邊框。 */
+.ani-setting-reset {
+  border-color: transparent !important;
+  transition: border-color 0.15s, color 0.15s;
+}
+.ani-setting-row:hover .ani-setting-reset {
+  border-color: var(--ani-editor-line) !important;
+}
+.ani-setting-reset:active {
+  transform: scale(0.94);
+}
+
+/* 開關：加大一點，開啟時發光。 */
+:is(.ani-view-settings-panel, #settings-controls) input[type='checkbox'][data-setting] {
+  width: 48px !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  border-radius: 14px !important;
+}
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting]::before {
+  width: 20px;
+  height: 20px;
+}
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting]:checked {
+  box-shadow: 0 0 14px -2px var(--ani-editor-glow);
+}
+:is(.ani-view-settings-panel, #settings-controls)
+  input[type='checkbox'][data-setting]:checked::before {
+  left: 23px;
+}
+
+/* 主題預設與選項：選中帶光暈，按下有回饋。 */
+.ani-theme-presets > button {
+  gap: 8px;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+.ani-theme-presets > button:active,
+.ani-effect-choices button:active {
+  transform: scale(0.98);
+}
+.ani-theme-presets > button[aria-pressed='true'] {
+  outline: 0;
+  box-shadow: 0 0 0 1px var(--ani-editor-accent), 0 0 22px -6px var(--ani-editor-glow);
+}
+.ani-theme-swatches i {
+  width: 34px;
+  height: 18px;
+  border-radius: 6px;
+}
+.ani-effect-choices button {
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.ani-effect-choices button[aria-pressed='true'] {
+  box-shadow: 0 0 18px -6px var(--ani-editor-glow);
+}
+body .ani-view-settings-panel .ani-method-list button[aria-pressed='true'],
+#settings-controls .ani-method-list button[aria-pressed='true'] {
+  box-shadow: 0 0 18px -8px var(--ani-editor-glow);
+}
+.ani-settings-range output {
+  color: var(--ani-editor-accent);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* 禁用：降低不透明度，並顯示禁止游標。 */
+.ani-setting-row.is-disabled {
+  opacity: 0.55;
+}
+.ani-setting-row.is-disabled * {
+  cursor: not-allowed;
+}
+
+/* 總開關列：做成卡片。 */
+[data-settings-overview] {
+  display: grid;
+  gap: 8px;
+}
+[data-settings-overview] > label {
+  padding: 8px 16px;
+  border: 1px solid var(--ani-editor-line);
+  border-radius: var(--ani-editor-radius);
+  background: var(--ani-editor-surface);
+  font-weight: 600;
+  cursor: pointer;
+}
+[data-settings-overview] > label:has(input:checked) {
+  border-color: rgb(140 196 245 / 45%);
+}
+@media (min-width: 1024px) {
+  .ani-settings-home {
+    gap: 12px 16px;
+  }
+  .ani-settings-category {
+    min-height: 104px;
+  }
+  [data-settings-overview] {
+    gap: 12px;
+  }
+  [data-settings-overview] > label,
+  [data-settings-overview] > label:last-child {
+    border: 1px solid var(--ani-editor-line);
+  }
+  [data-settings-overview] > label:has(input:checked) {
+    border-color: rgb(140 196 245 / 45%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ani-settings-category,
+  .ani-settings-category svg,
+  .ani-theme-presets > button,
+  .ani-effect-choices button,
+  .ani-setting-reset {
+    transition: none;
+    transform: none !important;
   }
 }
