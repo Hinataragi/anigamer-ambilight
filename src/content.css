@@ -279,7 +279,9 @@ body.ani-ambientlight-page .bottom-announcement {
   border-top: 1px solid var(--ani-line) !important;
 }
 body.ani-ambientlight-ui .bottom-announcement {
-  background: #152733 !important;
+  background: rgba(var(--ani-surface-rgb), 0.97) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 -4px 16px rgb(0 0 0 / 0.12);
   color: var(--ani-text) !important;
 }
 body.ani-ambientlight-ui .bottom-announcement :is(.announce-text, .announce-text a) {
@@ -292,10 +294,11 @@ body.ani-ambientlight-page .bottom-announcement button {
   padding: 0 12px !important;
 }
 body.ani-ambientlight-ui .bottom-announcement button {
-  color: #fff !important;
-  background: #137b88 !important;
+  color: var(--ani-base) !important;
+  background: var(--ani-accent) !important;
 }
 body.ani-ambientlight-ui .bottom-announcement .btn-next {
+  color: var(--ani-text) !important;
   background: var(--ani-soft) !important;
 }
 body.ani-ambientlight-page .dialogify__content {
@@ -3474,4 +3477,36 @@ body.ani-ambientlight-ui #BH_background .animate-theme-list:has(> .filter-sectio
   width: 100% !important;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 176px), 1fr)) !important;
   gap: 26px 18px !important;
+}
+
+/* ── 十三、對比修正：卡片下方的集數、站方青色連結與徽章都要達到 AA ── */
+body.ani-ambientlight-ui #blockVideoInSeason :is(.anime-episode, .anime-episode p, .anime-episode i) {
+  color: var(--ani-muted) !important;
+}
+body.ani-ambientlight-ui #BH_background
+  :is(.theme-show-more-list, .theme-show-more-list i, .btn-next:has(> p), .btn-next:has(> p) :is(p, span)) {
+  color: var(--ani-accent) !important;
+}
+body.ani-ambientlight-ui .premium-info {
+  background: var(--ani-accent) !important;
+}
+body.ani-ambientlight-ui .premium-info * {
+  background: transparent !important;
+  color: var(--ani-base) !important;
+}
+/* 原站徽章底色調深，白字對比 5:1 以上。 */
+body.ani-ambientlight-ui .label-edition.color-paid {
+  background: #a85a00 !important;
+}
+body.ani-ambientlight-ui .label-edition.color-now-playing {
+  background: #2f7d14 !important;
+}
+body.ani-ambientlight-ui .label-edition.color-OVA {
+  background: #3d6a8c !important;
+}
+body.ani-ambientlight-ui #BH_background .update-time {
+  background: #0a6c82 !important;
+}
+body.ani-ambientlight-ui :is(.top_btn_subscription, .top_btn_recommend) span {
+  background: #d12b2b !important;
 }

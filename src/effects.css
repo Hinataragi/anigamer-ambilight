@@ -127,7 +127,7 @@ body.ani-ambientlight-ui .anime_search-content {
   background: rgba(var(--ani-surface-rgb), 0.98) !important;
   color: var(--ani-text) !important;
 }
-body.ani-ambientlight-ui.ani-theme-light :is(.footer, .bottom-announcement) {
+body.ani-ambientlight-ui.ani-theme-light .footer {
   background: var(--ani-soft) !important;
 }
 body.ani-ambientlight-ui.ani-theme-light .footer :is(p, span, a) {
@@ -2137,8 +2137,7 @@ body.ani-ambientlight-ui.ani-footer-glow
     .footer div,
     .footer p,
     .footer span,
-    .footer a,
-    .bottom-announcement
+    .footer a
   ) {
   background: transparent !important;
   background-image: none !important;
@@ -2150,8 +2149,7 @@ body.ani-ambientlight-ui:not(.ani-footer-glow)
     .footer div,
     .footer p,
     .footer span,
-    .footer a,
-    .bottom-announcement
+    .footer a
   ) {
   background: var(--ani-panel-soft) !important;
 }
@@ -2168,10 +2166,7 @@ body.ani-ambientlight-ui .ani-tab-content__item > p {
 }
 
 /* 淺色主題：這些徽章坐在原站的深色底上，文字不能跟著主題變深。 */
-body.ani-theme-light.ani-ambientlight-ui #BH_background :is(.theme-number, .theme-time),
-body.ani-theme-light.ani-ambientlight-ui
-  #blockVideoInSeason
-  :is(.anime-watch-number, .anime-watch-number p, .anime-watch-number .material-icons) {
+body.ani-theme-light.ani-ambientlight-ui #BH_background :is(.theme-number, .theme-time) {
   color: #f4f6f8 !important;
 }
 /* 作品標題與集數列與其他區塊共用左右內距。 */
