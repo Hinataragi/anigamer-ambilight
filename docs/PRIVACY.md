@@ -24,7 +24,7 @@
 
 ## 外部連線
 
-預設使用系統字體。選用 Google Fonts 或開啟自訂字體的 Google 載入選項時，瀏覽器會連接 `fonts.googleapis.com` 與 `fonts.gstatic.com` 下載樣式及字型。Google 會收到下載所需的一般連線資訊，例如 IP 位址與瀏覽器提供的請求資訊，處理方式以 [Google 的隱私政策](https://policies.google.com/privacy) 為準。
+預設字體 Noto Sans TC、其他網路字體選項，以及自訂字體的 Google 載入選項，都會讓瀏覽器連接 `fonts.googleapis.com` 與 `fonts.gstatic.com` 下載樣式及字型。Google 會收到下載所需的一般連線資訊，例如 IP 位址與瀏覽器提供的請求資訊，處理方式以 [Google 的隱私政策](https://policies.google.com/privacy) 為準。
 
 切回系統字體，或關閉自訂字體的網路載入，可停止本工具新增的字型請求。已下載的字型可能保留在瀏覽器快取。動畫瘋本身載入的字型及其他連線不由本工具管理。
 

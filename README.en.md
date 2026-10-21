@@ -77,9 +77,9 @@ The six presets change colors, text size and transparency only. They **do not to
 
 | Theme (中文)                   | Character                            |
 | ------------------------------ | ------------------------------------ |
-| Immersive Ink (沉浸墨藍)       | Ink-blue base, cyan accent           |
-| Low-chroma Graphite (低彩石墨) | Muted grey-black, good at night      |
-| Warm Paper (暖紙淺色)          | Warm light theme for daytime         |
+| Immersive Ink (沉浸墨藍)       | Ink-blue base, sky-blue buttons and links |
+| Low-chroma Graphite (低彩石墨) | Muted grey-black, warm beige accent, good at night |
+| Warm Paper (暖紙淺色)          | Warm paper base, terracotta accent, good by day |
 | Forest Night (森林夜色)        | Deep green base, grey-green accent   |
 | Dusk Violet (暮紫)             | Grey-violet base, soft violet accent |
 | Clear Reading (清楚閱讀)       | Larger text, opaque info panels      |
@@ -111,10 +111,14 @@ These are not AI outpainting and never generate scenes beyond the video. Each mo
 - The player follows the site's adaptive layout by default; a custom theater width must be enabled separately.
 - Sidebar display ads can be hidden. Video ads are neither skipped nor blocked, and sampling pauses during them.
 - Turning off page layout keeps the original arrangement while lighting and colors still work.
+- The All Anime filters become rows of pill buttons, with the selected one in the accent color.
+- My Anime becomes a poster grid, with view-count and paid badges as pills of the same height.
+- AniGamer's own notice dialogs follow the theme.
+- Light mode was re-tuned for contrast, so badges, episode labels and the bottom announcement bar stay readable on white.
 
 ## Fonts
 
-Bundled: system fonts, Noto Sans TC, Noto Serif TC, Iansui, LXGW WenKai TC, Chiron Hei and Chiron Sung. Google Fonts load only when you select them; you can also enter any Google Fonts family name, or disable network loading and use a font installed on your device.
+The default is Noto Sans TC. Also bundled: system fonts, Noto Serif TC, Iansui, LXGW WenKai TC, Chiron Hei and Chiron Sung. You can enter any Google Fonts family name too. To avoid downloading fonts, switch to system fonts or use a font installed on your device.
 
 Fonts apply to navigation, titles, info, news, comments, the danmaku list and the settings panel; icon fonts are untouched. Player danmaku can optionally use the font, but only DOM text — canvas danmaku and the video's built-in subtitles cannot be changed by page CSS.
 
@@ -144,7 +148,7 @@ On desktop the panel is a centered two-column view (categories on the left, cont
 
 ## Privacy
 
-Settings are stored by the script manager or browser; extensions may sync them through your browser account depending on its settings. Fonts are requested from Google Fonts only if you choose a web font. Account credentials are never read and sign-in is never intercepted. See the [privacy policy](docs/PRIVACY.en.md).
+Settings are stored by the script manager or browser; extensions may sync them through your browser account depending on its settings. The default font, Noto Sans TC, is downloaded from Google Fonts. Switch to a system or device font and no request is made. Account credentials are never read and sign-in is never intercepted. See the [privacy policy](docs/PRIVACY.en.md).
 
 ## Development
 

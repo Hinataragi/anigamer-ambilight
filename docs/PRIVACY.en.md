@@ -20,7 +20,7 @@ Stored data consists of selected colors, fonts, lighting, layout, and feature se
 
 ## External connections
 
-System fonts are the default. Selecting Google Fonts, or enabling Google loading for a custom family, contacts `fonts.googleapis.com` and `fonts.gstatic.com` for styles and font files. Google receives connection information needed for downloads, such as your IP address and request information supplied by the browser. See [Google's privacy policy](https://policies.google.com/privacy).
+The default font, Noto Sans TC, other web font options, and Google loading for a custom family all contact `fonts.googleapis.com` and `fonts.gstatic.com` for styles and font files. Google receives connection information needed for downloads, such as your IP address and request information supplied by the browser. See [Google's privacy policy](https://policies.google.com/privacy).
 
 Switching to system fonts or disabling online custom-font loading stops new font requests added by this tool. Downloaded files may remain cached. Connections made by AniGamer itself are outside this tool's control.
 
