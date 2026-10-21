@@ -3510,3 +3510,14 @@ body.ani-ambientlight-ui #BH_background .update-time {
 body.ani-ambientlight-ui :is(.top_btn_subscription, .top_btn_recommend) span {
   background: #d12b2b !important;
 }
+
+/* 集數列：站方把 li 固定成 40px，按鈕 44px 會被削掉下緣，這裡讓外層跟著內容撐高。 */
+body.ani-layout-episodes .ani-episode-shelf .season,
+body.ani-layout-episodes .ani-episode-shelf .season ul {
+  height: auto !important;
+  max-height: none !important;
+}
+body.ani-layout-episodes .ani-episode-shelf .season a {
+  box-sizing: border-box;
+  height: 100%;
+}
