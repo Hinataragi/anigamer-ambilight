@@ -3527,3 +3527,22 @@ body.ani-layout-episodes .ani-episode-shelf .season a {
   box-sizing: border-box;
   height: 100%;
 }
+
+/* 窄版頂欄是 48px，但右上角圖示列是 40px 高貼頂，整排（含搜尋放大鏡）偏上 4px。 */
+@media (max-width: 900px) {
+  body.ani-layout-nav .sky .member,
+  body.ani-layout-nav .sky .member > li {
+    height: 48px !important;
+  }
+  body.ani-layout-nav .sky .member > .searchbtn a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 100% !important;
+    line-height: 1 !important;
+  }
+  body.ani-layout-nav .sky .member > .searchbtn a i {
+    display: block;
+    line-height: 1 !important;
+  }
+}
